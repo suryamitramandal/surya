@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | सुर्या मित्र मंडळ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <header>
+        <img src="surya logo.png" alt="Surya Mitra Mandal Logo">
+        <h1 id="title">सुर्या मित्र मंडळ</h1>
+        <p id="subtitle">25 वर्ष पूर्णता महोत्सव | रजत जयंती</p>
+    </header>
+
+    <nav>
+        <a href="index.html" id="nav-home">Home</a>
+        <a href="about.html" id="nav-about">About Us</a>
+        <a href="events.html" id="nav-events">Events</a>
+        <a href="contact.html" id="nav-contact">Contact</a>
+        <select id="language" onchange="switchLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="hi">हिंदी </option>
+            <option value="mr">मराठी</option>
+        </select>
+    </nav>
+
+    <section id="contact-section">
+        <h2 id="contact-heading">Contact Us</h2>
+        <p id="contact-info">You can visit us at Kandivali (East), Mumbai or reach us via social media platforms.</p>
+
+        <ul id="contact-list">
+            <li>Email: suryamitra@example.com</li>
+            <li>Phone: +91-9876543210</li>
+            <li>Facebook: fb.com/suryamitramandal</li>
+            <li>Instagram: @suryamitramandal</li>
+        </ul>
+    </section>
+
+    <footer>
+        &copy; 2025 सुर्या मित्र मंडळ | All Rights Reserved
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                navHome: "Home",
+                navAbout: "About Us",
+                navEvents: "Events",
+                navContact: "Contact",
+                title: "Surya Mitra Mandal",
+                subtitle: "25 Years Completion Celebration | Silver Jubilee",
+                contactHeading: "Contact Us",
+                contactInfo: "You can visit us at Kandivali (East), Mumbai or reach us via social media platforms.",
+                contactList: [
+                    "Email: suryamitra@example.com",
+                    "Phone: +91-9876543210",
+                    "Facebook: fb.com/suryamitramandal",
+                    "Instagram: @suryamitramandal"
+                ]
+            },
+            hi: {
+                navHome: "मुख्य पृष्ठ",
+                navAbout: "हमारे बारे में",
+                navEvents: "कार्यक्रम",
+                navContact: "संपर्क करें",
+                title: "सुर्या मित्र मंडळ",
+                subtitle: "25 वर्ष पूर्णता महोत्सव | रजत जयंती",
+                contactHeading: "संपर्क करें",
+                contactInfo: "आप कांदिवली (पूर्व), मुंबई में हमसे मिल सकते हैं या हमारे सोशल मीडिया प्लेटफॉर्म के माध्यम से संपर्क करें।",
+                contactList: [
+                    "ईमेल: suryamitra@example.com",
+                    "फोन: +91-9876543210",
+                    "फेसबुक: fb.com/suryamitramandal",
+                    "इंस्टाग्राम: @suryamitramandal"
+                ]
+            },
+            mr: {
+                navHome: "मुख्यपृष्ठ",
+                navAbout: "आमच्याविषयी",
+                navEvents: "कार्यक्रम",
+                navContact: "संपर्क",
+                title: "सुर्या मित्र मंडळ",
+                subtitle: "२५ वर्षे पूर्णता महोत्सव | रजत जयंती",
+                contactHeading: "संपर्क साधा",
+                contactInfo: "आपण कांदिवली (पूर्व), मुंबई येथे भेट देऊ शकता किंवा आमच्या सोशल मीडिया प्लॅटफॉर्म्स वर संपर्क करा.",
+                contactList: [
+                    "ईमेल: suryamitra@example.com",
+                    "फोन: +91-9876543210",
+                    "फेसबुक: fb.com/suryamitramandal",
+                    "इंस्टाग्राम: @suryamitramandal"
+                ]
+            }
+        };
+
+        function switchLanguage(lang) {
+            document.getElementById('nav-home').textContent = translations[lang].navHome;
+            document.getElementById('nav-about').textContent = translations[lang].navAbout;
+            document.getElementById('nav-events').textContent = translations[lang].navEvents;
+            document.getElementById('nav-contact').textContent = translations[lang].navContact;
+            document.getElementById('title').textContent = translations[lang].title;
+            document.getElementById('subtitle').textContent = translations[lang].subtitle;
+
+            document.getElementById('contact-heading').textContent = translations[lang].contactHeading;
+            document.getElementById('contact-info').textContent = translations[lang].contactInfo;
+
+            const contactList = document.getElementById('contact-list');
+            contactList.innerHTML = '';
+            translations[lang].contactList.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                contactList.appendChild(li);
+            });
+        }
+    </script>
+<script src="language.js"></script>
+</body>
+</html>
