@@ -13,20 +13,25 @@
     <header>
         <img src="surya logo.png" alt="Surya Mitra Mandal Logo">
         <h1 id="title">सुर्या मित्र मंडळ</h1>
-        <p id="subtitle">25 वर्ष पूर्णता महोत्सव | रजत जयंती</p>
+    <p id="subtitle">२५ वर्ष पूर्णता महोत्सव | रजत जयंती</p>
     </header>
 
     <nav>
-        <a href="index.html" id="nav-home">Home</a>
-        <a href="about.html" id="nav-about">About Us</a>
-        <a href="events.html" id="nav-events">Events</a>
-        <a href="contact.html" id="nav-contact">Contact</a>
-        <select id="language" onchange="switchLanguage(this.value)">
-            <option value="en">English</option>
-            <option value="hi">हिंदी </option>
-            <option value="mr">मराठी</option>
-        </select>
-    </nav>
+    <a href="index.html" id="nav-home">Home</a>
+    <a href="about.html" id="nav-about">About Us</a>
+    <a href="events.html" id="nav-events">Events</a>
+    <a href="team.html" id="nav-team">Team</a>
+    <a href="sponsors.html" id="nav-sponsors">Sponsors</a>
+    <a href="contact.html" id="nav-contact">Contact</a>
+    <select id="language" onchange="switchLanguage(this.value)">
+        <option value="en">English</option>
+        <option value="hi">हिंदी</option>
+        <option value="mr">मराठी</option>
+    </select>
+</nav>
+
+<main class="main-bg">
+<div class="content-wrapper">
 
     <section id="events-section">
         <h2 id="events-heading">Our Events</h2>
@@ -41,7 +46,8 @@
             <li>Sports and Cultural Competitions</li>
         </ul>
     </section>
-
+</div>
+    </main>
     <footer>
         &copy; 2025 सुर्या मित्र मंडळ | All Rights Reserved
     </footer>
@@ -50,9 +56,11 @@
         const translations = {
             en: {
                 navHome: "Home",
-                navAbout: "About Us",
-                navEvents: "Events",
-                navContact: "Contact",
+        navAbout: "About Us",
+        navEvents: "Events",
+        navTeam: "Team",
+        navSponsors: "Sponsors",
+        navContact: "Contact",
                 title: "Surya Mitra Mandal",
                 subtitle: "25 Years Completion Celebration | Silver Jubilee",
                 eventsHeading: "Our Events",
@@ -68,11 +76,13 @@
             },
             hi: {
                 navHome: "मुख्य पृष्ठ",
-                navAbout: "हमारे बारे में",
-                navEvents: "कार्यक्रम",
-                navContact: "संपर्क करें",
+        navAbout: "हमारे बारे में",
+        navEvents: "कार्यक्रम",
+        navTeam: "टीम",
+        navSponsors: "प्रायोजक",
+        navContact: "संपर्क करें",
                 title: "सुर्या मित्र मंडळ",
-                subtitle: "25 वर्ष पूर्णता महोत्सव | रजत जयंती",
+                subtitle: "२५ वर्ष पूर्णता महोत्सव | रजत जयंती",
                 eventsHeading: "हमारे कार्यक्रम",
                 eventsIntro: "हमारे सामाजिक, सांस्कृतिक और धार्मिक कार्यक्रमों में शामिल हों:",
                 eventsList: [
@@ -86,9 +96,11 @@
             },
             mr: {
                 navHome: "मुख्यपृष्ठ",
-                navAbout: "आमच्याविषयी",
-                navEvents: "कार्यक्रम",
-                navContact: "संपर्क",
+        navAbout: "आमच्याविषयी",
+        navEvents: "कार्यक्रम",
+        navTeam: "संघ",
+        navSponsors: "प्रायोजक",
+        navContact: "संपर्क",
                 title: "सुर्या मित्र मंडळ",
                 subtitle: "२५ वर्षे पूर्णता महोत्सव | रजत जयंती",
                 eventsHeading: "आमचे कार्यक्रम",
@@ -105,24 +117,28 @@
         };
 
         function switchLanguage(lang) {
-            document.getElementById('nav-home').textContent = translations[lang].navHome;
-            document.getElementById('nav-about').textContent = translations[lang].navAbout;
-            document.getElementById('nav-events').textContent = translations[lang].navEvents;
-            document.getElementById('nav-contact').textContent = translations[lang].navContact;
-            document.getElementById('title').textContent = translations[lang].title;
-            document.getElementById('subtitle').textContent = translations[lang].subtitle;
-            document.getElementById('events-heading').textContent = translations[lang].eventsHeading;
-            document.getElementById('events-intro').textContent = translations[lang].eventsIntro;
-
-            const list = document.getElementById('events-list');
-            list.innerHTML = '';
-            translations[lang].eventsList.forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = item;
-                list.appendChild(li);
+            const elements = [
+                ['nav-home', 'navHome'],
+                ['nav-about', 'navAbout'],
+                ['nav-events', 'navEvents'],
+                ['nav-team', 'navTeam'],
+                ['nav-sponsors', 'navSponsors'],
+                ['nav-contact', 'navContact'],
+                ['title', 'title'],
+                ['subtitle', 'subtitle'],
+                ['about-heading', 'aboutHeading'],
+                ['about-text', 'aboutText']
+            ];
+            elements.forEach(([id, key]) => {
+                const el = document.getElementById(id);
+                if (el && translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
             });
         }
     </script>
-<script src="language.js"></script>
+    <script src="language.js"></script>
+ 
+
 </body>
 </html>
