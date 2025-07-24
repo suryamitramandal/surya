@@ -3,149 +3,1688 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | सुर्या मित्र मंडळ</title>
-    <link rel="stylesheet" href="style.css">
+    <title>🔆 Surya Mitra Mandal - Singh Estate cha Raja</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-              /* Prevent footer overlap */
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        .header-gradient {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffcc02 100%);
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-text {
+            color: white;
+            font-weight: 700;
+        }
+        
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-item:hover,
+        .nav-item.active {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, rgba(247, 147, 30, 0.1) 50%, rgba(255, 204, 2, 0.1) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 2rem;
+            color: #ff6b35;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-description {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+        }
+        
+        /* Floating Animation */
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(5deg); }
+            66% { transform: translateY(-10px) rotate(-5deg); }
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+        
+        /* Gallery Section */
+        .gallery-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #fef7f0 0%, #fff8e1 100%);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .gallery-item {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.2);
+        }
+        
+        .gallery-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+        
+        .gallery-content {
+            padding: 1.5rem;
+        }
+        
+        .gallery-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+               .gallery-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px; /* optional */
+}
+        
+        /* Events Section */
+        .events-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .event-card {
+            background: linear-gradient(135deg, #fff 0%, #fef7f0 100%);
+            border-radius: 1rem;
+            padding: 2rem;
+            border-left: 5px solid #ff6b35;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .event-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
+        }
+        
+        .event-date {
+            background: #ff6b35;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .event-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .event-description {
+            color: #666;
+        }
+
+        /* Sponsor Section */
+        .sponsor-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #fef7f0 0%, #fff8e1 100%);
+        }
+        
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .sponsor-item {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .sponsor-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.2);
+        }
+        
+        .sponsor-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+        
+        .sponsor-content {
+            padding: 1.5rem;
+        }
+        
+        .sponsor-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sponsor-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+               .sponsor-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px; /* optional */
+}
+
+
+        /* Team Section */
+        .team-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #fef7f0 0%, #fff8e1 100%);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 107, 53, 0.2);
+        }
+        
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-role {
+            color: #ff6b35;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .team-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+
+        .center-text {
+            text-align: center;
+        }
+
+        .contact-section {
+            padding: 5rem 0;
+            background: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #fef7f0 0%, #fff8e1 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+        
+        .map-container {
+            background: linear-gradient(135deg, #fff 0%, #fef7f0 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-wrapper {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(255, 107, 53, 0.2);
+        }
+        
+        .map-info {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 107, 53, 0.1);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .contact-details h4 {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-details p {
+            color: #666;
+        }
+        
+        .contact-form {
+            background: linear-gradient(135deg, #fff 0%, #fef7f0 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #f0f0f0;
+            border-radius: 0.5rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6b35;
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+        }
+        
+        .submit-button {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffcc02 100%);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            margin-bottom: 2rem;
+        }
+        
+        .footer-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1rem;
+            opacity: 0.8;
+        }
+        
+        /* Mobile Menu Styles */
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+        
+        .hamburger {
+            width: 24px;
+            height: 18px;
+            position: relative;
+            transform: rotate(0deg);
+            transition: 0.3s ease-in-out;
+        }
+        
+        .hamburger span {
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            background: white;
+            border-radius: 2px;
+            opacity: 1;
+            left: 0;
+            transform: rotate(0deg);
+            transition: 0.3s ease-in-out;
+        }
+        
+        .hamburger span:nth-child(1) {
+            top: 0px;
+        }
+        
+        .hamburger span:nth-child(2) {
+            top: 7px;
+        }
+        
+        .hamburger span:nth-child(3) {
+            top: 14px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            top: 7px;
+            transform: rotate(135deg);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            left: -60px;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            top: 7px;
+            transform: rotate(-135deg);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffcc02 100%);
+            z-index: 1000;
+            transition: right 0.3s ease-in-out;
+            box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mobile-menu.active {
+            right: 0;
+        }
+        
+        .mobile-menu-content {
+            padding: 5rem 2rem 2rem;
+            height: 100%;
+            overflow-y: auto;
+        }
+        
+        .mobile-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-nav-item:hover,
+        .mobile-nav-item.active {
+            background: rgba(255, 255, 255, 0.1);
+            padding-left: 1rem;
+            border-radius: 0.5rem;
+        }
+        
+        .mobile-nav-item i {
+            font-size: 1.2rem;
+            width: 20px;
+        }
+        
+        .mobile-language-section {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .mobile-language-title {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .mobile-language-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .mobile-language-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        
+        .mobile-language-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .logo-text h1 {
+                font-size: 1rem;
+            }
+            
+            .logo-text p {
+                font-size: 0.75rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .hero-section {
+                padding: 2rem 0;
+            }
+            
+            .about-section,
+            .gallery-section,
+            .events-section,
+            .team-section,
+            .contact-section {
+                padding: 3rem 0;
+            }
+            
+            .feature-card,
+            .gallery-item,
+            .event-card,
+            .team-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Language Switcher */
+        .language-switcher {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            z-index: 1000;
+            min-width: 120px;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-option {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+        
+        .language-option:hover {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+        }
+        
+        /* Notification Banner */
+        .notification-banner {
+            background: linear-gradient(90deg, #ff6b35, #f7931e, #ffcc02);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            font-weight: 500;
+            animation: slideText 15s linear infinite;
+        }
+        
+        @keyframes slideText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Success Message */
+        .success-message {
+            background: #10b981;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            display: none;
+        }
+      
+        .success-message.show {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-    <img src="surya logo.png" alt="Surya Mitra Mandal Logo" />
-    <h1 id="title">सुर्या मित्र मंडळ</h1>
-    <p id="subtitle">२५ वर्ष पूर्णता महोत्सव | रजत जयंती</p>
-    
-</header>
+    <!-- Notification Banner 
+    <div class="notification-banner">
+        🕉️ सुर्या मित्र मंडळ - सिंह ईस्टेटचा राजा - 25वा वर्ष महोत्सव 🕉️ गणपति बप्पा मोरया 🕉️
+    </div>
+    -->
 
-<nav>
-    <a href="index.html" id="nav-home">Home</a>
-    <a href="about.html" id="nav-about">About Us</a>
-    <a href="events.html" id="nav-events">Events</a>
-    <a href="team.html" id="nav-team">Team</a>
-    <a href="sponsors.html" id="nav-sponsors">Sponsors</a>
-    <a href="contact.html" id="nav-contact">Contact</a>
-    <select id="language" onchange="switchLanguage(this.value)">
-        <option value="en">English</option>
-        <option value="hi">हिंदी</option>
-        <option value="mr">मराठी</option>
-    </select>
-</nav>
+    <!-- Header -->
+    <header class="header-gradient sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="logo-container">
+                    <span class="text-4xl">🔆</span>
+                    <div class="logo-text">
+                        <h1 class="text-xl font-bold" data-en="Surya Mitra Mandal" data-hi="सुर्या मित्र मंडळ" data-mr="सुर्या मित्र मंडळ">सुर्या मित्र मंडळ</h1>
+                        <p class="text-sm opacity-90" data-en="Singh Estate cha Raja - 25rd Year" data-hi="सिंह ईस्टेटचा राजा - 25वा वर्ष" data-mr="सिंह इस्टेटचा राजा - 25वा वर्ष">सिंह ईस्टेटचा राजा - 25वा वर्ष</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="nav-menu hidden md:flex">
+                    <a href="#home" class="nav-item active" data-en="Home" data-hi="होम" data-mr="मुख्य">Home</a>
+                    <a href="#about" class="nav-item" data-en="About" data-hi="परिचय" data-mr="आमच्याबद्दल">About</a>
+                    <a href="#gallery" class="nav-item" data-en="Gallery" data-hi="गैलरी" data-mr="चित्रसंग्रह">Gallery</a>
+                    <a href="#events" class="nav-item" data-en="Events" data-hi="कार्यक्रम" data-mr="कार्यक्रम">Events</a>
+                    <a href="#sponsor" class="nav-item" data-en="Sponsor" data-hi="प्रायोजक" data-mr="स्पॉन्सर"> Sponsor</a>
+                    <a href="#team" class="nav-item" data-en="Team" data-hi="टीम" data-mr="संघ">Team</a>
+                    <a href="#contact" class="nav-item" data-en="Contact" data-hi="संपर्क" data-mr="संपर्क">Contact</a>
+                    
+                    <!-- Language Switcher -->
+                    <div class="language-switcher">
+                        <button class="nav-item" onclick="toggleLanguageDropdown()">
+                            <i class="fas fa-globe"></i> <span id="currentLang">EN</span> <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <div class="language-option" onclick="changeLanguage('en')">
+                                🇺🇸 English
+                            </div>
+                            <div class="language-option" onclick="changeLanguage('hi')">
+                                🇮🇳 हिंदी
+                            </div>
+                            <div class="language-option" onclick="changeLanguage('mr')">
+                                🇮🇳 मराठी
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn md:hidden" onclick="toggleMobileMenu()">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
 
-<main class="main-bg">
-<div class="content-wrapper">
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-menu-content">
+                    <a href="#home" class="mobile-nav-item active" data-en="Home" data-hi="होम" data-mr="मुख्य" onclick="closeMobileMenu()">
+                        <i class="fas fa-home"></i> Home
+                    </a>
+                    <a href="#about" class="mobile-nav-item" data-en="About" data-hi="परिचय" data-mr="आमच्याबद्दल" onclick="closeMobileMenu()">
+                        <i class="fas fa-info-circle"></i> About
+                    </a>
+                    <a href="#gallery" class="mobile-nav-item" data-en="Gallery" data-hi="गैलरी" data-mr="चित्रसंग्रह" onclick="closeMobileMenu()">
+                        <i class="fas fa-images"></i> Gallery
+                    </a>
+                    <a href="#events" class="mobile-nav-item" data-en="Events" data-hi="कार्यक्रम" data-mr="कार्यक्रम" onclick="closeMobileMenu()">
+                        <i class="fas fa-calendar-alt"></i> Events
+                    </a>
+                    <a href="#sponsor" class="mobile-nav-item" data-en="Sponsor" data-hi="प्रायोजक" data-mr="स्पॉन्सर" onclick="closeMobileMenu()">
+                        <i class="fas fa-users"></i> Sponsor
+                    </a>
+                    <a href="#team" class="mobile-nav-item" data-en="Team" data-hi="टीम" data-mr="संघ" onclick="closeMobileMenu()">
+                        <i class="fas fa-users"></i> Team
+                    </a>
+                    <a href="#contact" class="mobile-nav-item" data-en="Contact" data-hi="संपर्क" data-mr="संपर्क" onclick="closeMobileMenu()">
+                        <i class="fas fa-phone"></i> Contact
+                    </a>
+                    
+                    <!-- Mobile Language Switcher -->
+                    <div class="mobile-language-section">
+                        <h4 class="mobile-language-title" data-en="Language" data-hi="भाषा" data-mr="भाषा">Language</h4>
+                        <div class="mobile-language-options">
+                            <button class="mobile-language-btn" onclick="changeLanguage('en'); closeMobileMenu();">
+                                🇺🇸 English
+                            </button>
+                            <button class="mobile-language-btn" onclick="changeLanguage('hi'); closeMobileMenu();">
+                                🇮🇳 हिंदी
+                            </button>
+                            <button class="mobile-language-btn" onclick="changeLanguage('mr'); closeMobileMenu();">
+                                🇮🇳 मराठी
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <section class="content">
-        <h2 id="hero-heading">Welcome to the Silver Jubilee Celebration</h2>
-        <p id="hero-text">Join us in celebrating 25 years of devotion, unity, and culture.</p>
-        <button id="join-btn" onclick="location.href='https://www.instagram.com/surya_mitra_mandal/'">Join Us</button>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container mx-auto px-6">
+            <div class="hero-content">
+                <div class="float-animation mb-8">
+                    <svg width="200" height="200" viewBox="0 0 200 200" class="mx-auto">
+                        <!-- Ganesh SVG -->
+                        <circle cx="100" cy="80" r="45" fill="#ff6b35" opacity="0.9"/>
+                        <ellipse cx="100" cy="75" rx="40" ry="35" fill="#f7931e"/>
+                        <path d="M100 85 Q85 95 90 110 Q95 115 100 110" fill="#ff6b35" stroke="#e55a2b" stroke-width="2"/>
+                        <circle cx="90" cy="70" r="3" fill="#333"/>
+                        <circle cx="110" cy="70" r="3" fill="#333"/>
+                        <path d="M70 50 Q100 40 130 50 L125 60 Q100 55 75 60 Z" fill="#ffcc02"/>
+                        <ellipse cx="65" cy="75" rx="15" ry="20" fill="#f7931e"/>
+                        <ellipse cx="135" cy="75" rx="15" ry="20" fill="#f7931e"/>
+                        <ellipse cx="100" cy="140" rx="35" ry="45" fill="#ff6b35"/>
+                        <ellipse cx="65" cy="130" rx="12" ry="25" fill="#f7931e"/>
+                        <ellipse cx="135" cy="130" rx="12" ry="25" fill="#f7931e"/>
+                        <circle cx="100" cy="140" r="8" fill="#ffcc02"/>
+                    </svg>
+                </div>
+                
+                <h1 class="hero-title fade-in" data-en="Ganpati Bappa Morya" data-hi="गणपति बप्पा मोरया" data-mr="गणपती बाप्पा मोरया">गणपति बप्पा मोरया</h1>
+                <h2 class="hero-subtitle fade-in" data-en="Surya Mitra Mandal" data-hi="सुर्या मित्र मंडळ" data-mr="सुर्या मित्र मंडळ">सुर्या मित्र मंडळ</h2>
+                <p class="hero-description fade-in" data-en="Celebrating 25 years of devotion, community service, and the divine blessings of Singh Estate cha Raja. Join us in this sacred journey of faith and tradition." data-hi="25 साल की भक्ति, सामुदायिक सेवा और सिंह एस्टेट चा राजा के दिव्य आशीर्वाद का जश्न मना रहे हैं। श्रद्धा और परंपरा की इस पवित्र यात्रा में हमारे साथ जुड़ें।" data-mr="25 वर्षांची भक्ती, सामुदायिक सेवा आणि सिंह इस्टेट चा राजाच्या दिव्य आशीर्वादाचा उत्सव साजरा करत आहोत. श्रद्धा आणi परंपरेच्या या पवित्र प्रवासात आमच्यासोबत सामील व्हा.">
+                    Celebrating 25 years of devotion, community service, and the divine blessings of Singh Estate cha Raja. 
+                    Join us in this sacred journey of faith and tradition.
+                </p>
+                <a href="#about" class="cta-button fade-in" id="seekBlessingsBtn" data-en="🙏 Seek Blessings" data-hi="🙏 आशीर्वाद लें" data-mr="🙏 आशीर्वाद घ्या">🙏 Seek Blessings</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title fade-in" data-en="About Our Mandal" data-hi="हमारे मंडल के बारे में" data-mr="आमच्या मंडळाबद्दल">About Our Mandal</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card fade-in">
+                    <span class="feature-icon">🏛️</span>
+                    <h3 class="feature-title" data-en="Established 2001" data-hi="स्थापित 2001" data-mr="स्थापित 2001">Established 2001</h3>
+                    <p data-en="सुर्या मित्र मंडळ was founded in 2001 with a vision to bring the community together in devotion to Lord Ganesha. For 25 years, we have been serving Singh Estate with dedication and faith." data-hi="सुर्या मित्र मंडळ की स्थापना 2001 में भगवान गणेश की भक्ति में समुदाय को एक साथ लाने के दृष्टिकोण के साथ की गई थी। 25 सालों से हम समर्पण और श्रद्धा के साथ सिंह एस्टेट की सेवा कर रहे हैं।" data-mr="सुर्या मित्र मंडळची स्थापना 2001 मध्ये गणेश भगवानाच्या भक्तीमध्ये समुदायाला एकत्र आणण्याच्या दृष्टिकोनाने करण्यात आली. 25 वर्षांपासून आम्ही समर्पण आणि श्रद्धेने सिंह इस्टेटची सेवा करत आहोत.">
+                        सुर्या मित्र मंडळ was founded in 2001 with a vision to bring the community together in devotion to Lord Ganesha. 
+                        For 25 years, we have been serving Singh Estate with dedication and faith.
+                    </p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <span class="feature-icon">👑</span>
+                    <h3 class="feature-title" data-en="Singh Estate cha Raja" data-hi="सिंह ईस्टेटचा राजा" data-mr="सिंह इस्टेटचा राजा">सिंह ईस्टेटचा राजा</h3>
+                    <p data-en="Our beloved Ganpati Raja has been blessing Singh Estate for 25 years. Known for his divine presence and miraculous blessings, he is the heart of our community celebrations." data-hi="हमारे प्रिय गणपति राजा 25 सालों से सिंह एस्टेट को आशीर्वाद दे रहे हैं। अपनी दिव्य उपस्थिति और चमत्कारी आशीर्वाद के लिए प्रसिद्ध, वे हमारे सामुदायिक उत्सव के दिल हैं।" data-mr="आमचे प्रिय गणपती राजा 25 वर्षांपासून सिंह इस्टेटला आशीर्वाद देत आहेत. त्यांच्या दिव्य उपस्थिती आणि चमत्कारिक आशीर्वादासाठी प्रसिद्ध, ते आमच्या सामुदायिक उत्सवाचे हृदय आहेत.">
+                        Our beloved Ganpati Raja has been blessing Singh Estate for 25 years. Known for his divine presence 
+                        and miraculous blessings, he is the heart of our community celebrations.
+                    </p>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <span class="feature-icon">🎉</span>
+                    <h3 class="feature-title" data-en="25 Years Legacy" data-hi="25 साल की विरासत" data-mr="25 वर्षांचा वारसा">25 Years Legacy</h3>
+                    <p data-en="A journey of faith, tradition, and community bonding that continues to inspire generations. Our 25rd year celebration marks another milestone in our spiritual journey." data-hi="विश्वास, परंपरा और सामुदायिक बंधन की यात्रा जो पीढ़ियों को प्रेरणा देती रहती है। हमारा 25वां वर्ष समारोह हमारी आध्यात्मिक यात्रा में एक और मील का पत्थर है।" data-mr="श्रद्धा, परंपरा आणि सामुदायिक बंधनाचा प्रवास जो पिढ्यांना प्रेरणा देत राहतो. आमचा 25वा वर्ष उत्सव आमच्या आध्यात्मिक प्रवासातील आणखी एक मैलाचा दगड आहे.">
+                        A journey of faith, tradition, and community bonding that continues to inspire generations. 
+                        Our 25rd year celebration marks another milestone in our spiritual journey.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title fade-in" data-en="Photo Gallery" data-hi="फोटो गैलरी" data-mr="फोटो गॅलरी">Photo Gallery</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <div class="gallery-placeholder">  <img src="gallery/download.jpeg" alt="Inauguration" class="gallery-img"> </div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title" data-en="25rd Year Inauguration" data-hi="25वें वर्ष का उद्घाटन" data-mr="25व्या वर्षाचे उद्घाटन">25rd Year Inauguration</h3>
+                        <p class="gallery-description" data-en="Grand opening ceremony of our 25rd year celebration" data-hi="हमारे 25वें वर्ष के समारोह का भव्य उद्घाटन समारोह" data-mr="आमच्या 25व्या वर्षाच्या उत्सवाचा भव्य उद्घाटन समारोह">Grand opening ceremony of our 25rd year celebration</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <div class="gallery-placeholder">🏛️</div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title" data-en="Pandal Decoration" data-hi="पंडाल सजावट" data-mr="पंडाल सजावट">Pandal Decoration</h3>
+                        <p class="gallery-description" data-en="Beautiful decorations and artistic designs" data-hi="सुंदर सजावट और कलात्मक डिजाइन" data-mr="सुंदर सजावट आणि कलात्मक डिझाइन">Beautiful decorations and artistic designs</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <div class="gallery-placeholder">🎭</div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title" data-en="Cultural Programs" data-hi="सांस्कृतिक कार्यक्रम" data-mr="सांस्कृतिक कार्यक्रम">Cultural Programs</h3>
+                        <p class="gallery-description" data-en="Dance, music and traditional performances" data-hi="नृत्य, संगीत और पारंपरिक प्रदर्शन" data-mr="नृत्य, संगीत आणि पारंपारिक कार्यक्रम">Dance, music and traditional performances</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <div class="gallery-placeholder">🌊</div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title" data-en="Visarjan Ceremony" data-hi="विसर्जन समारोह" data-mr="विसर्जन समारोह">Visarjan Ceremony</h3>
+                        <p class="gallery-description" data-en="Sacred immersion procession with community participation" data-hi="सामुदायिक भागीदारी के साथ पवित्र विसर्जन जुलूस" data-mr="सामुदायिक सहभागासह पवित्र विसर्जन मिरवणूक">Sacred immersion procession with community participation</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <div class="gallery-placeholder">🍬</div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title" data-en="Prasad Distribution" data-hi="प्रसाद वितरण" data-mr="प्रसाद वितरण">Prasad Distribution</h3>
+                        <p class="gallery-description" data-en="Daily blessed offerings to devotees" data-hi="भक्तों को दैनिक धन्य प्रसाद" data-mr="भक्तांना दैनिक धन्य प्रसाद">Daily blessed offerings to devotees</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in">
+                    <div class="gallery-placeholder">👥</div>
+                    <div class="gallery-content">
+                        <h3 class="gallery-title" data-en="Community Gathering" data-hi="सामुदायिक सभा" data-mr="सामुदायिक सभा">Community Gathering</h3>
+                        <p class="gallery-description" data-en="Families and friends coming together in celebration" data-hi="परिवार और मित्र उत्सव में एक साथ आ रहे हैं" data-mr="कुटुंब आणि मित्र उत्सवात एकत्र येत आहेत">Families and friends coming together in celebration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="events-section">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title fade-in" data-en="Festival Events" data-hi="त्योहार कार्यक्रम" data-mr="सण कार्यक्रम">Festival Events</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="event-card slide-in-left">
+                    <div class="event-date" data-en="September 7, 2024" data-hi="7 सितंबर, 2024" data-mr="7 सप्टेंबर, 2024">September 7, 2024</div>
+                    <h3 class="event-title" data-en="Ganesh Chaturthi - Festival Begins" data-hi="गणेश चतुर्थी - त्योहार शुरू" data-mr="गणेश चतुर्थी - सण सुरुवात">Ganesh Chaturthi - Festival Begins</h3>
+                    <p class="event-description" data-en="Grand inauguration of our 25rd year celebration with traditional rituals and community prayers." data-hi="पारंपरिक अनुष्ठानों और सामुदायिक प्रार्थनाओं के साथ हमारे 25वें वर्ष के समारोह का भव्य उद्घाटन।" data-mr="पारंपारिक विधी आणि सामुदायिक प्रार्थनांसह आमच्या 25व्या वर्षाच्या उत्सवाचे भव्य उद्घाटन.">Grand inauguration of our 25rd year celebration with traditional rituals and community prayers.</p>
+                </div>
+                
+                <div class="event-card slide-in-right">
+                    <div class="event-date" data-en="Daily Events" data-hi="दैनिक कार्यक्रम" data-mr="दैनिक कार्यक्रम">Daily Events</div>
+                    <h3 class="event-title" data-en="Morning & Evening Aarti" data-hi="सुबह और शाम की आरती" data-mr="सकाळ आणि संध्याकाळची आरती">Morning & Evening Aarti</h3>
+                    <p class="event-description" data-en="Daily prayers at 7:00 AM and 7:00 PM followed by prasad distribution and cultural programs." data-hi="सुबह 7:00 बजे और शाम 7:00 बजे दैनिक प्रार्थना के बाद प्रसाद वितरण और सांस्कृतिक कार्यक्रम।" data-mr="सकाळी 7:00 आणि संध्याकाळी 7:00 वाजता दैनिक प्रार्थना त्यानंतर प्रसाद वितरण आणि सांस्कृतिक कार्यक्रम.">Daily prayers at 7:00 AM and 7:00 PM followed by prasad distribution and cultural programs.</p>
+                </div>
+                
+                <div class="event-card slide-in-left">
+                    <div class="event-date" data-en="September 17, 2024" data-hi="17 सितंबर, 2024" data-mr="17 सप्टेंबर, 2024">September 17, 2024</div>
+                    <h3 class="event-title" data-en="Anant Chaturdashi - Visarjan" data-hi="अनंत चतुर्दशी - विसर्जन" data-mr="अनंत चतुर्दशी - विसर्जन">Anant Chaturdashi - Visarjan</h3>
+                    <p class="event-description" data-en="Sacred immersion ceremony with grand procession, dhol tasha pathak, and community participation." data-hi="भव्य जुलूस, ढोल ताशा पथक और सामुदायिक भागीदारी के साथ पवित्र विसर्जन समारोह।" data-mr="भव्य मिरवणूक, ढोल ताशा पथक आणि सामुदायिक सहभागासह पवित्र विसर्जन समारोह.">Sacred immersion ceremony with grand procession, dhol tasha pathak, and community participation.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
 
-</div>
-</main>
+    <!-- sponsor Section -->
+    <section id="sponsor" class="sponsor-section">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title fade-in" data-en="Photo Gallery" data-hi="फोटो गैलरी" data-mr="फोटो गॅलरी">Sponsor</h2>
+            
+            <div class="sponsor-grid">
+                <div class="sponsor-item fade-in">
+                    <div class="sponsor-placeholder">  <img src="gallery/download.jpeg" alt="Inauguration" class="sponsor-img"> </div>
+                    <div class="sponsor-content">
+                        <h3 class="sponsor-title" data-en="25rd Year Inauguration" data-hi="25वें वर्ष का उद्घाटन" data-mr="25व्या वर्षाचे उद्घाटन">25rd Year Inauguration</h3>
+                        <p class="sponsor-description" data-en="Grand opening ceremony of our 25rd year celebration" data-hi="हमारे 25वें वर्ष के समारोह का भव्य उद्घाटन समारोह" data-mr="आमच्या 25व्या वर्षाच्या उत्सवाचा भव्य उद्घाटन समारोह">Grand opening ceremony of our 25rd year celebration</p>
+                    </div>
+                </div>
+                
+                <div class="sponsor-item fade-in">
+                    <div class="sponsor-placeholder">🏛️</div>
+                    <div class="sponsor-content">
+                        <h3 class="sponsor-title" data-en="Pandal Decoration" data-hi="पंडाल सजावट" data-mr="पंडाल सजावट">Pandal Decoration</h3>
+                        <p class="sponsor-description" data-en="Beautiful decorations and artistic designs" data-hi="सुंदर सजावट और कलात्मक डिजाइन" data-mr="सुंदर सजावट आणि कलात्मक डिझाइन">Beautiful decorations and artistic designs</p>
+                    </div>
+                </div>
+                
+                <div class="sponsor-item fade-in">
+                    <div class="sponsor-placeholder">🎭</div>
+                    <div class="sponsor-content">
+                        <h3 class="sponsor-title" data-en="Cultural Programs" data-hi="सांस्कृतिक कार्यक्रम" data-mr="सांस्कृतिक कार्यक्रम">Cultural Programs</h3>
+                        <p class="sponsor-description" data-en="Dance, music and traditional performances" data-hi="नृत्य, संगीत और पारंपरिक प्रदर्शन" data-mr="नृत्य, संगीत आणि पारंपारिक कार्यक्रम">Dance, music and traditional performances</p>
+                    </div>
+                </div>
+                
+                <div class="sponsor-item fade-in">
+                    <div class="sponsor-placeholder">🌊</div>
+                    <div class="sponsor-content">
+                        <h3 class="sponsor-title" data-en="Visarjan Ceremony" data-hi="विसर्जन समारोह" data-mr="विसर्जन समारोह">Visarjan Ceremony</h3>
+                        <p class="sponsor-description" data-en="Sacred immersion procession with community participation" data-hi="सामुदायिक भागीदारी के साथ पवित्र विसर्जन जुलूस" data-mr="सामुदायिक सहभागासह पवित्र विसर्जन मिरवणूक">Sacred immersion procession with community participation</p>
+                    </div>
+                </div>
+                
+                <div class="sponsor-item fade-in">
+                    <div class="sponsor-placeholder">🍬</div>
+                    <div class="sponsor-content">
+                        <h3 class="sponsor-title" data-en="Prasad Distribution" data-hi="प्रसाद वितरण" data-mr="प्रसाद वितरण">Prasad Distribution</h3>
+                        <p class="sponsor-description" data-en="Daily blessed offerings to devotees" data-hi="भक्तों को दैनिक धन्य प्रसाद" data-mr="भक्तांना दैनिक धन्य प्रसाद">Daily blessed offerings to devotees</p>
+                    </div>
+                </div>
+                
+                <div class="sponsor-item fade-in">
+                    <div class="sponsor-placeholder">👥</div>
+                    <div class="sponsor-content">
+                        <h3 class="sponsor-title" data-en="Community Gathering" data-hi="सामुदायिक सभा" data-mr="सामुदायिक सभा">Community Gathering</h3>
+                        <p class="sponsor-description" data-en="Families and friends coming together in celebration" data-hi="परिवार और मित्र उत्सव में एक साथ आ रहे हैं" data-mr="कुटुंब आणि मित्र उत्सवात एकत्र येत आहेत">Families and friends coming together in celebration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <footer>
-    &copy; 2025 सुर्या मित्र मंडळ | All Rights Reserved
-</footer>
 
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title fade-in" data-en="Our Team" data-hi="हमारी टीम" data-mr="आमचा संघ">Our Team</h2>
+            
+            <div class="team-grid">
+                <div class="team-card fade-in">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="team-name" data-en="President" data-hi="अध्यक्ष" data-mr="अध्यक्ष">President</h3>
+                    <p class="team-role" data-en="Shri Satish Singh" data-hi="श्री [नाम]" data-mr="श्री [नाव]">Shri Satish Singh</p>
+                    <p class="team-description" data-en="Leading the mandal with vision and dedication for community service" data-hi="सामुदायिक सेवा के लिए दृष्टि और समर्पण के साथ मंडल का नेतृत्व" data-mr="सामुदायिक सेवेसाठी दृष्टी आणि समर्पणाने मंडळाचे नेतृत्व">Leading the mandal with vision and dedication for community service</p>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="team-avatar">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3 class="team-name" data-en="Secretary" data-hi="सचिव" data-mr="सचिव">Secretary</h3>
+                    <p class="team-role" data-en="Shri [Name]" data-hi="श्री [नाम]" data-mr="श्री [नाव]">Shri [Name]</p>
+                    <p class="team-description" data-en="Coordinating all activities and managing communications" data-hi="सभी गतिविधियों का समन्वय और संचार प्रबंधन" data-mr="सर्व क्रियाकलापांचे समन्वय आणि संप्रेषण व्यवस्थापन">Coordinating all activities and managing communications</p>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="team-avatar">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 class="team-name" data-en="Treasurer" data-hi="कोषाध्यक्ष" data-mr="कोषाध्यक्ष">Treasurer</h3>
+                    <p class="team-role" data-en="Shri [Name]" data-hi="श्री [नाम]" data-mr="श्री [नाव]">Shri [Name]</p>
+                    <p class="team-description" data-en="Managing finances with transparency and accountability" data-hi="पारदर्शिता और जवाबदेही के साथ वित्त प्रबंधन" data-mr="पारदर्शकता आणि जबाबदारीसह वित्त व्यवस्थापन">Managing finances with transparency and accountability</p>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="team-avatar">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="team-name" data-en="Decoration Head" data-hi="सजावट प्रमुख" data-mr="सजावट प्रमुख">Decoration Head</h3>
+                    <p class="team-role" data-en="Shri [Name]" data-hi="श्री [नाम]" data-mr="श्री [नाव]">Shri [Name]</p>
+                    <p class="team-description" data-en="Creating beautiful pandal decorations and artistic designs" data-hi="सुंदर पंडाल सजावट और कलात्मक डिजाइन बनाना" data-mr="सुंदर पंडाल सजावट आणि कलात्मक डिझाइन तयार करणे">Creating beautiful pandal decorations and artistic designs</p>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="team-avatar">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="team-name" data-en="Cultural Head" data-hi="सांस्कृतिक प्रमुख" data-mr="सांस्कृतिक प्रमुख">Cultural Head</h3>
+                    <p class="team-role" data-en="Shri [Name]" data-hi="श्री [नाम]" data-mr="श्री [नाव]">Shri [Name]</p>
+                    <p class="team-description" data-en="Organizing cultural programs and traditional performances" data-hi="सांस्कृतिक कार्यक्रमों और पारंपरिक प्रदर्शनों का आयोजन" data-mr="सांस्कृतिक कार्यक्रम आणि पारंपारिक कार्यक्रमांचे आयोजन">Organizing cultural programs and traditional performances</p>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="team-avatar">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="team-name" data-en="Security Head" data-hi="सुरक्षा प्रमुख" data-mr="सुरक्षा प्रमुख">Security Head</h3>
+                    <p class="team-role" data-en="Shri [Name]" data-hi="श्री [नाम]" data-mr="श्री [नाव]">Shri [Name]</p>
+                    <p class="team-description" data-en="Ensuring safety and security during all festival events" data-hi="सभी त्योहार कार्यक्रमों के दौरान सुरक्षा और सुरक्षा सुनिश्चित करना" data-mr="सर्व सण कार्यक्रमांदरम्यान सुरक्षा आणि संरक्षण सुनिश्चित करणे">Ensuring safety and security during all festival events</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title fade-in" data-en="Contact Us" data-hi="संपर्क करें" data-mr="संपर्क करा">Contact Us</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info slide-in-left">
+                    <h3 class="text-2xl font-bold text-orange-600 mb-6" data-en="Get in Touch" data-hi="संपर्क में रहें" data-mr="संपर्कात रहा">Get in Touch</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-en="Location" data-hi="स्थान" data-mr="स्थान">Location</h4>
+                            <p data-en="Singh Estate, Bhandup West, Mumbai, Maharashtra 400078" data-hi="सिंह एस्टेट, भांडुप वेस्ट, मुंबई, महाराष्ट्र 400078" data-mr="सिंह इस्टेट, भांडुप वेस्ट, मुंबई, महाराष्ट्र 400078">Singh Estate, Bhandup West<br>Mumbai, Maharashtra 400078</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-en="Phone" data-hi="फोन" data-mr="फोन">Phone</h4>
+                            <p>+91 98676 48995<br>+91 84549 77746</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-en="Darshan Timings" data-hi="दर्शन समय" data-mr="दर्शन वेळा">Darshan Timings</h4>
+                            <p  data-en="Morning: 6:00 AM  TO  Evening: 10:00 PM" data-hi="सुबह: 6:00 AM  से  शाम: 10:00 PM" data-mr="सकाळ: 6:00 AM  ते  संध्याकाळ: 10:00 PM">Morning: 6:00 AM  TO  Evening: 10:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4 data-en="Email" data-hi="ईमेल" data-mr="ईमेल">Email</h4>
+                            <p>suryamitramandal@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container slide-in-right">
+                    <h3 class="text-2xl font-bold text-orange-600 mb-6" data-en="Find Us Here" data-hi="हमें यहाँ खोजें" data-mr="आम्हाला येथे शोधा">Find Us Here</h3>
+                    
+                    <div class="map-wrapper">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.8254567890125!2d72.8735532!3d19.2042069!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7007ae72b77%3A0x6994ddd7ccc43693!2sSurya%20mitra%20mandal%20%7C%20Singh%20estate%20cha%20Raja!5e0!3m2!1sen!2sin!4v1254567890125!5m2!1sen!2sin"
+                            width="100%" 
+                            height="400" 
+                            style="border:0; border-radius: 1rem;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    
+                    <div class="map-info mt-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-directions text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800" data-en="Get Directions" data-hi="दिशा प्राप्त करें" data-mr="दिशा मिळवा">Get Directions</h4>
+                                <p class="text-gray-600 text-sm" data-en="Click the map to open in Google Maps" data-hi="गूगल मैप्स में खोलने के लिए मैप पर क्लिक करें" data-mr="गूगल मॅप्समध्ये उघडण्यासाठी मॅपवर क्लिक करा">Click the map to open in Google Maps</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-car text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800" data-en="Parking Available" data-hi="पार्किंग उपलब्ध" data-mr="पार्किंग उपलब्ध">Parking Available</h4>
+                                <p class="text-gray-600 text-sm" data-en="Free parking space available near the pandal" data-hi="पंडाल के पास मुफ्त पार्किंग स्थान उपलब्ध" data-mr="पंडालजवळ मोफत पार्किंग जागा उपलब्ध">Free parking space available near the pandal</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container mx-auto px-6">
+            <div class="footer-content">
+                <span class="text-6xl">🕉️</span>
+                <h3 class="footer-title" data-en="Surya Mitra Mandal" data-hi="सुर्या मित्र मंडळ" data-mr="सुर्या मित्र मंडळ">सुर्या मित्र मंडळ</h3>
+                <p class="footer-subtitle" data-en="Singh Estate cha Raja - 25rd Year Celebration" data-hi="सिंह ईस्टेटचा राजा - 25वा वर्ष समारोह" data-mr="सिंह इस्टेटचा राजा - 25वा वर्ष उत्सव">सिंह ईस्टेटचा राजा - 25वा वर्ष समारोह</p>
+                
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/1ZDqQH8Zm4/?mibextid=wwXIfr" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/singhestatecha_raja/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/watch?v=Z_s6wVqMk-A" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+                
+                <p data-en="May Lord Ganesha bless you with wisdom, prosperity, and happiness" data-hi="भगवान गणेश आपको बुद्धि, समृद्धि और खुशी का आशीर्वाद दें" data-mr="गणेश भगवान तुम्हाला बुद्धी, समृद्धी आणि आनंदाचे आशीर्वाद देवो">
+                    May Lord Ganesha bless you with wisdom, prosperity, and happiness
+                </p>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-en="🙏 Ganpati Bappa Morya - Mangalmurti Morya 🙏" data-hi="🙏 गणपति बप्पा मोरया - मंगलमूर्ति मोरया 🙏" data-mr="🙏 गणपती बाप्पा मोरया - मंगलमूर्ती मोरया 🙏">
+                    🙏 गणपति बप्पा मोरया - मंगलमूर्ति मोरया 🙏
+                </p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Load header and footer
-        function loadHTML(id, url) {
-            fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById(id).innerHTML = data;
-                    if (id === 'header-placeholder') {
-                        // After header loads, initialize language switcher
-                        const savedLang = localStorage.getItem('selectedLanguage') || 'en';
-                        const languageSelect = document.getElementById('language');
-                        if (languageSelect) {
-                            languageSelect.value = savedLang;
-                            languageSelect.addEventListener('change', (e) => {
-                                switchLanguage(e.target.value);
-                            });
-                            applyLanguage(savedLang);
-                        }
-                    }
-                });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            loadHTML('header-placeholder', 'header.html');
-            loadHTML('footer-placeholder', 'footer.html');
-        });
-
+        // Language translations
         const translations = {
             en: {
-                navHome: "Home",
-                navAbout: "About Us",
-                navEvents: "Events",
-                navTeam: "Team",
-                navSponsors: "Sponsors",
-                navContact: "Contact",
-                title: "Surya Mitra Mandal",
-                subtitle: "25 Years Completion Celebration | Silver Jubilee",
-                heroHeading: "Welcome to the Silver Jubilee Celebration",
-                heroText: "Join us in celebrating 25 years of devotion, unity, and culture.",
-                joinBtn: "Join Us"
+                seekBlessings: "🙏 Seek Blessings",
+                blessingsReceived: "✨ Blessings Received! ✨",
+                sendMessage: "Send Message",
+                sending: "Sending...",
+                messageSent: "Thank you! Your message has been sent successfully."
             },
             hi: {
-                navHome: "मुख्य पृष्ठ",
-                navAbout: "हमारे बारे में",
-                navEvents: "कार्यक्रम",
-                navTeam: "टीम",
-                navSponsors: "प्रायोजक",
-                navContact: "संपर्क करें",
-                title: "सुर्या मित्र मंडळ",
-                subtitle: "२५ वर्ष पूर्णता महोत्सव | रजत जयंती",
-                heroHeading: "रजत जयंती समारोह में आपका स्वागत है",
-                heroText: "२५ वर्षों की भक्ति, एकता और संस्कृति का जश्न मनाइए।",
-                joinBtn: "हमसे जुड़ें"
+                seekBlessings: "🙏 आशीर्वाद लें",
+                blessingsReceived: "✨ आशीर्वाद प्राप्त! ✨",
+                sendMessage: "संदेश भेजें",
+                sending: "भेजा जा रहा है...",
+                messageSent: "धन्यवाद! आपका संदेश सफलतापूर्वक भेजा गया है।"
             },
             mr: {
-                navHome: "मुख्यपृष्ठ",
-                navAbout: "आमच्याविषयी",
-                navEvents: "कार्यक्रम",
-                navTeam: "संघ",
-                navSponsors: "प्रायोजक",
-                navContact: "संपर्क",
-                title: "सुर्या मित्र मंडळ",
-                subtitle: "२५ वर्षे पूर्णता महोत्सव | रजत जयंती",
-                heroHeading: "रजत जयंती उत्सवात आपले स्वागत आहे",
-                heroText: "२५ वर्षे भक्ती, एकता आणि संस्कृतीचा साजरा करा.",
-                joinBtn: "आमच्यात सामील व्हा"
+                seekBlessings: "🙏 आशीर्वाद घ्या",
+                blessingsReceived: "✨ आशीर्वाद मिळाले! ✨",
+                sendMessage: "संदेश पाठवा",
+                sending: "पाठवत आहे...",
+                messageSent: "धन्यवाद! तुमचा संदेश यशस्वीरित्या पाठवला गेला आहे."
             }
         };
 
-        function switchLanguage(lang) {
-            const elements = [
-                ['nav-home', 'navHome'],
-                ['nav-about', 'navAbout'],
-                ['nav-events', 'navEvents'],
-                ['nav-team', 'navTeam'],
-                ['nav-sponsors', 'navSponsors'],
-                ['nav-contact', 'navContact'],
-                ['title', 'title'],
-                ['subtitle', 'subtitle'],
-                ['hero-heading', 'heroHeading'],
-                ['hero-text', 'heroText'],
-                ['join-btn', 'joinBtn']
-            ];
-            elements.forEach(([id, key]) => {
-                const el = document.getElementById(id);
-                if (el && translations[lang][key]) {
-                    el.textContent = translations[lang][key];
+        let currentLanguage = 'en';
+
+        // Mobile menu functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('mobileMenuOverlay');
+            const hamburger = document.querySelector('.hamburger');
+            
+            mobileMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            
+            // Prevent body scroll when menu is open
+            if (mobileMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('mobileMenuOverlay');
+            const hamburger = document.querySelector('.hamburger');
+            
+            mobileMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Language switcher functions
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('languageDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            const langMap = { en: 'EN', hi: 'हि', mr: 'मर' };
+            document.getElementById('currentLang').textContent = langMap[lang];
+            
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-' + lang + ']').forEach(element => {
+                const translation = element.getAttribute('data-' + lang);
+                if (translation) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translation;
+                    } else {
+                        element.textContent = translation;
+                    }
                 }
             });
-            localStorage.setItem('selectedLang', lang);
+            
+            // Update dynamic content
+            const seekBtn = document.getElementById('seekBlessingsBtn');
+            if (seekBtn && !seekBtn.classList.contains('blessed')) {
+                seekBtn.textContent = translations[lang].seekBlessings;
+            }
+            
+            const submitBtn = document.querySelector('.button-text');
+            if (submitBtn) {
+                submitBtn.textContent = translations[lang].sendMessage;
+            }
+            
+            // Close dropdown
+            document.getElementById('languageDropdown').classList.remove('show');
+            
+            // Update font family for Devanagari scripts
+            if (lang === 'hi' || lang === 'mr') {
+                document.body.style.fontFamily = "'Noto Sans Devanagari', 'Poppins', sans-serif";
+            } else {
+                document.body.style.fontFamily = "'Poppins', sans-serif";
+            }
         }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('languageDropdown');
+            const switcher = document.querySelector('.language-switcher');
+            
+            if (!switcher.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update active nav item for both desktop and mobile
+                    document.querySelectorAll('.nav-item, .mobile-nav-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Find corresponding items in both menus and mark as active
+                    const href = this.getAttribute('href');
+                    document.querySelectorAll(`a[href="${href}"]`).forEach(item => {
+                        item.classList.add('active');
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animated elements
+            document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // Blessing button interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const blessingsBtn = document.getElementById('seekBlessingsBtn');
+            
+            blessingsBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                this.classList.add('blessed');
+                this.textContent = translations[currentLanguage].blessingsReceived;
+                this.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                
+                // Create floating blessing effect
+                for (let i = 0; i < 12; i++) {
+                    setTimeout(() => {
+                        const blessing = document.createElement('div');
+                        const blessings = ['🙏', '✨', '🌟', '💫', '🕉️', '🌺', '💐'];
+                        blessing.innerHTML = blessings[Math.floor(Math.random() * blessings.length)];
+                        blessing.style.cssText = `
+                            position: fixed;
+                            left: ${Math.random() * window.innerWidth}px;
+                            top: ${window.innerHeight}px;
+                            font-size: ${2 + Math.random()}rem;
+                            pointer-events: none;
+                            z-index: 1000;
+                            animation: blessingFloat ${3 + Math.random() * 2}s ease-out forwards;
+                        `;
+                        
+                        document.body.appendChild(blessing);
+                        
+                        setTimeout(() => blessing.remove(), 5000);
+                    }, i * 100);
+                }
+                
+                // Reset button after 5 seconds
+                setTimeout(() => {
+                    this.classList.remove('blessed');
+                    this.textContent = translations[currentLanguage].seekBlessings;
+                    this.style.background = 'linear-gradient(135deg, #ff6b35, #f7931e)';
+                }, 5000);
+            });
+        });
+
+        // Map interaction enhancement
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapWrapper = document.querySelector('.map-wrapper');
+            if (mapWrapper) {
+                mapWrapper.addEventListener('click', function() {
+                    // Add a subtle animation when map is clicked
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            }
+        });
+
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initScrollAnimations();
+            
+            // Add initial visible class to hero elements
+            setTimeout(() => {
+                document.querySelectorAll('.hero-section .fade-in').forEach(el => {
+                    el.classList.add('visible');
+                });
+            }, 500);
+        });
+
+        // Add blessing float animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes blessingFloat {
+                0% {
+                    transform: translateY(0) rotate(0deg) scale(1);
+                    opacity: 1;
+                }
+                50% {
+                    transform: translateY(-50vh) rotate(180deg) scale(1.2);
+                    opacity: 0.8;
+                }
+                100% {
+                    transform: translateY(-100vh) rotate(360deg) scale(0.8);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Update active nav item on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navItems = document.querySelectorAll('.nav-item, .mobile-nav-item');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === '#' + current) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside or on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+
+        
+        // Close mobile menu on window resize if it's open
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
+            }
+        });
     </script>
-
-    <script src="language.js"></script>
-
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9646950bc30cefd5',t:'MTc1MzM5MzI5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
