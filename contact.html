@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Surya Mitra Mandal | Singh Estate Cha Raja — Ganesh Utsav Mumbai">
+<title>Contact Us | Surya Mitra Mandal</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="icon" type="image/png" sizes="32x32" href="Bappa1/assets/favicon.png">
+</head>
+<body>
+<div id="header-placeholder"></div>
+<main>
+
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow" data-i18n="cont_eyebrow">Reach Us</span>
+    <h1 data-i18n="cont_h2">Contact Us</h1>
+    <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="eyebrow reveal">Get In Touch</span>
+        <h2 class="reveal" style="font-size:clamp(1.7rem,3vw,2.4rem);margin:.5rem 0 1.2rem">We'd Love to Hear From You</h2>
+        <p class="reveal" style="color:var(--text-300);line-height:1.8;margin-bottom:var(--sp-8)">Whether you want to volunteer, sponsor, or simply send your blessings — reach out to us and we'll get back to you as soon as possible.</p>
+        <div class="contact-info">
+          <div class="contact-detail reveal" data-delay="1">
+            <div class="contact-ico">📍</div>
+            <div>
+              <h4>Address</h4>
+              <p>Surya Mitra Mandal | Singh Estate Cha Raja<br>Road No. 3, Singh Estate,<br>Kandivali (East), Mumbai 400101</p>
+            </div>
+          </div>
+          <div class="contact-detail reveal" data-delay="2">
+            <div class="contact-ico">📞</div>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:+919867648995" style="color:var(--clr-vermilion);font-weight:600">+91 98676 48995</a>
+            </div>
+          </div>
+          <div class="contact-detail reveal" data-delay="3">
+            <div class="contact-ico">📱</div>
+            <div>
+              <h4>WhatsApp</h4>
+              <a href="https://wa.me/919867648995" target="_blank" style="color:var(--clr-vermilion);font-weight:600">Chat on WhatsApp</a>
+            </div>
+          </div>
+          <div class="contact-detail reveal" data-delay="4">
+            <div class="contact-ico">🕉️</div>
+            <div>
+              <h4>Sthapana Date</h4>
+              <p>14 September 2026 · 12:00 PM onwards</p>
+            </div>
+          </div>
+        </div>
+        <div class="map-wrap reveal" style="margin-top:var(--sp-8)">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.315051539635!2d72.8730903!3d19.2046027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b7007ae72b77%3A0x6994ddd7ccc43693!2sSurya%20mitra%20mandal%20%7C%20Singh%20estate%20cha%20Raja!5e0!3m2!1sen!2sin!4v1723276319403!5m2!1sen!2sin"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Surya Mitra Mandal Location">
+          </iframe>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="contact-form">
+          <h3 style="font-size:var(--fs-2xl);margin-bottom:var(--sp-6)">Send Us a Message</h3>
+          <form id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cf-name" data-i18n="cont_name">Full Name</label>
+                <input class="form-input" id="cf-name" name="name" type="text" required placeholder="Your full name">
+                <span class="form-error"></span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cf-phone" data-i18n="cont_phone">Phone Number</label>
+                <input class="form-input" id="cf-phone" name="phone" type="tel" placeholder="+91 XXXXX XXXXX">
+                <span class="form-error"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cf-email" data-i18n="cont_email">Email Address</label>
+              <input class="form-input" id="cf-email" name="email" type="email" required placeholder="you@example.com">
+              <span class="form-error"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cf-subject" data-i18n="cont_subject">Subject</label>
+              <select class="form-select" id="cf-subject" name="subject">
+                <option value="">Select a topic…</option>
+                <option>General Enquiry</option>
+                <option>Volunteering</option>
+                <option>Sponsorship</option>
+                <option>Donation</option>
+                <option>Media & Press</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cf-msg" data-i18n="cont_msg">Message</label>
+              <textarea class="form-textarea" id="cf-msg" name="message" required placeholder="How can we help you?"></textarea>
+              <span class="form-error"></span>
+            </div>
+            <button type="submit" class="btn btn-primary btn-ripple w-full" style="justify-content:center" data-i18n="cont_submit">Send Message</button>
+            <div class="form-success" id="form-success" data-i18n="cont_success">Thank you! Your message has been sent.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social -->
+<section class="section section-bg">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Stay Connected</span>
+      <h2>Follow Us on Social Media</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal" data-delay="1" style="text-align:center">
+        <div class="feature-ico">📘</div>
+        <h3>Facebook</h3>
+        <p>Updates, photos and live announcements from the festival.</p>
+        <a href="https://www.facebook.com/profile.php?id=61578631113462" target="_blank" rel="noopener" class="btn btn-outline btn-sm mt-4">Visit Page</a>
+      </div>
+      <div class="feature-card reveal" data-delay="2" style="text-align:center">
+        <div class="feature-ico">📸</div>
+        <h3>Instagram</h3>
+        <p>Behind-the-scenes and festive moments captured beautifully.</p>
+        <a href="https://www.instagram.com/singhestatecha_raja/" target="_blank" rel="noopener" class="btn btn-outline btn-sm mt-4">Follow Us</a>
+      </div>
+      <div class="feature-card reveal" data-delay="3" style="text-align:center">
+        <div class="feature-ico">▶️</div>
+        <h3>YouTube</h3>
+        <p>Watch highlights and procession videos from past years.</p>
+        <a href="https://www.youtube.com/watch?v=Z_s6wVqMk-A" target="_blank" rel="noopener" class="btn btn-outline btn-sm mt-4">Watch Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div id="footer-placeholder"></div>
+<script src="js/language.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/components.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/gallery.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+/* ============================================================
+   RESPONSIVE — Surya Mitra Mandal
+   ============================================================ */
+
+/* Tablet */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:var(--sp-10)}
+  .hero-frame img{height:420px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .timeline::before{left:20px}
+  .timeline-item{grid-template-columns:auto 1fr;grid-template-rows:auto auto}
+  .timeline-dot{grid-column:1;grid-row:1;margin-top:.4rem}
+  .timeline-content:first-child{grid-column:2;grid-row:1}
+  .timeline-content:last-child{grid-column:2;grid-row:2;display:none}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:var(--sp-8)}
+  .contact-grid{grid-template-columns:1fr}
+  .donate-card{grid-template-columns:1fr}
+  .about-intro{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(3,1fr)}
+  .gallery-item.wide{grid-column:span 1}
+  .mission-grid{grid-template-columns:1fr 1fr}
+  .testimonials-grid{grid-template-columns:1fr 1fr}
+}
+
+/* Mobile */
+@media(max-width:767px){
+  .topbar .container{flex-direction:column;gap:.2rem;text-align:center}
+  .topbar-right{gap:.8rem}
+  .nav-menu{
+    position:fixed;top:0;right:-100%;width:min(320px,80vw);height:100vh;
+    background:var(--bg-100);flex-direction:column;align-items:flex-start;
+    padding:5rem var(--sp-8) var(--sp-8);gap:var(--sp-2);overflow-y:auto;
+    box-shadow:-8px 0 30px rgba(0,0,0,.15);transition:right var(--dur-slow) var(--ease-out);
+    z-index:190;list-style:none
+  }
+  .nav-menu.open{right:0}
+  .nav-menu a{font-size:var(--fs-base);padding:.7rem 1rem;width:100%;border-radius:var(--r-md)}
+  .nav-burger{display:flex}
+  .nav-donate{display:none}
+  .hero-grid{grid-template-columns:1fr;padding:var(--sp-16) 0 var(--sp-12)}
+  .hero h1{font-size:clamp(2rem,8vw,3rem)}
+  .hero-frame img{height:320px}
+  .hero-badge{bottom:-14px;left:-10px;padding:.8rem 1rem}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .features-grid{grid-template-columns:1fr}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-item.wide,.gallery-item.tall{grid-column:span 1;grid-row:span 1}
+  .gallery-item.tall img,.gallery-item img{height:180px}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr;gap:var(--sp-6)}
+  .footer-bottom{flex-direction:column;gap:.4rem;text-align:center}
+  .donate-card{grid-template-columns:1fr}
+  .donate-qr-side{padding:var(--sp-10) var(--sp-6)}
+  .about-intro{grid-template-columns:1fr}
+  .mission-grid{grid-template-columns:1fr}
+  .testimonials-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .countdown-strip{gap:.5rem}
+  .cd-cell{min-width:64px;padding:.75rem}
+  .cd-num{font-size:1.4rem}
+  .section{padding:var(--sp-16) 0}
+  .section-sm{padding:var(--sp-10) 0}
+  .cta-btns{flex-direction:column;align-items:center}
+  .contact-grid{grid-template-columns:1fr}
+  .lb-nav{display:none}
+}
+
+@media(max-width:420px){
+  .gallery-grid{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .hero-btns{flex-direction:column}
+}

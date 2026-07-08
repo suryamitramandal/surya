@@ -1,0 +1,54 @@
+/* Keyframes */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideLeft{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+@keyframes slideRight{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+@keyframes zoomIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:.5;transform:scale(1)}50%{opacity:.8;transform:scale(1.08)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes shimmer{from{background-position:-400px 0}to{background-position:400px 0}}
+@keyframes countUp{from{transform:translateY(100%);opacity:0}to{transform:none;opacity:1}}
+@keyframes progressBar{from{width:0}to{width:100%}}
+@keyframes ripple{to{transform:scale(4);opacity:0}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* Reveal system */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{opacity:0;transform:translateX(-36px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-right{opacity:0;transform:translateX(36px);transition:opacity .7s var(--ease-out),transform .7s var(--ease-out)}
+.reveal-right.visible{opacity:1;transform:none}
+.reveal-zoom{opacity:0;transform:scale(.92);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+.reveal-zoom.visible{opacity:1;transform:scale(1)}
+[data-delay="1"]{transition-delay:100ms}
+[data-delay="2"]{transition-delay:200ms}
+[data-delay="3"]{transition-delay:300ms}
+[data-delay="4"]{transition-delay:400ms}
+[data-delay="5"]{transition-delay:500ms}
+
+/* Floating badge */
+.float-anim{animation:float 5s ease-in-out infinite}
+/* Spin */
+.spin-slow{animation:spin 80s linear infinite}
+
+/* Page transition overlay */
+.page-transition{position:fixed;inset:0;background:var(--grad-hero);z-index:9999;
+  pointer-events:none;opacity:0;transition:opacity .35s}
+.page-transition.active{opacity:1}
+
+/* Scroll progress */
+#scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;
+  background:var(--grad-gold);z-index:1000;transition:width .1s}
+
+/* Ripple btn */
+.btn-ripple{position:relative;overflow:hidden}
+.btn-ripple .ripple-circle{position:absolute;border-radius:50%;
+  background:rgba(255,255,255,.35);width:100px;height:100px;
+  margin-top:-50px;margin-left:-50px;animation:ripple .7s linear;pointer-events:none}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
