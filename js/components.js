@@ -32,6 +32,15 @@ const HEADER_HTML = `
       <li><a href="sponsors.html" data-i18n="nav_sponsors">Sponsors</a></li>
       <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
       <li><a href="donate.html" class="nav-donate btn-ripple" data-i18n="nav_donate">Donate</a></li>
+
+      <li class="nav-mobile-controls">
+      
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="hi">हि</button>
+        <button class="lang-btn" data-lang="mr">म</button>
+        <button class="theme-btn" id="theme-toggle">🌙</button>
+        
+      </li>
     </ul>
     <div class="nav-controls">
       <button class="lang-btn" data-lang="en" title="English" aria-label="English">EN</button>
@@ -39,6 +48,8 @@ const HEADER_HTML = `
       <button class="lang-btn" data-lang="mr" title="Marathi" aria-label="Marathi">म</button>
       <button class="theme-btn" id="theme-toggle" aria-label="Toggle theme">🌙</button>
     </div>
+
+    
     <button class="nav-burger" id="nav-burger" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>

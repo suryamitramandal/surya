@@ -72,3 +72,53 @@
   .stats-grid{grid-template-columns:1fr 1fr}
   .hero-btns{flex-direction:column}
 }
+
+
+
+/* Hide mobile controls on desktop */
+.nav-mobile-controls{
+    display:none;
+}
+
+/* Mobile */
+@media (max-width:767px){
+
+    /* Hide the old top-right controls */
+    .nav-inner > .nav-controls{
+        display:none;
+    }
+
+    /* Show controls inside hamburger menu */
+    .nav-mobile-controls{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+    padding-top:20px;
+    border-top:1px solid var(--border);
+}
+
+.nav-mobile-controls .lang-btn,
+.nav-mobile-controls .theme-btn{
+    width:44px;
+    height:44px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+}
+
+    .nav-mobile-controls .nav-controls{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:10px;
+    }
+
+    .nav-mobile-controls .theme-btn{
+        width:100%;
+        justify-content:center;
+    }
+}

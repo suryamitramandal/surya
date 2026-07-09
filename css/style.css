@@ -471,5 +471,3 @@ h1,h2,h3,.font-display{font-family:var(--font-display);font-weight:400;line-heig
   font-size:var(--fs-xs);font-weight:600;background:var(--bg-300);color:var(--text-300);
   border:1px solid var(--border)}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
-
-
