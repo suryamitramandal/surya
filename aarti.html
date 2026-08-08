@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Aarti Sangrah | Surya Mitra Mandal — Collection of Devotional Aartis">
+<title>Aarti Sangrah | Surya Mitra Mandal</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="icon" type="image/png" sizes="32x32" href="Bappa1/assets/favicon.png">
+
+<style>
+/* ================================================================
+   AARTI PAGE STYLES — Works seamlessly with project variables
+================================================================ */
+.aarti-hero {
+    background:
+        radial-gradient(ellipse at 20% 80%, rgba(255,153,51,0.2) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 20%, rgba(212,175,55,0.18) 0%, transparent 55%),
+        linear-gradient(160deg, #5c100d 0%, var(--clr-maroon, #7b1e1e) 55%, #4a0d0b 100%);
+    color: #FBF3E3;
+    padding: 5rem 1rem 4rem;
+    text-align: center;
+    position: relative;
+}
+.aarti-hero .om-big {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    color: #d4af37;
+    line-height: 1;
+    text-shadow: 0 0 50px rgba(212,175,55,0.7);
+    margin-bottom: 0.5rem;
+}
+.aarti-hero h1 {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    margin-top: 0.5rem;
+    color: #FBF3E3;
+}
+.aarti-hero p {
+    color: #f5d67b;
+    font-style: italic;
+    margin: 0.8rem auto 0;
+    max-width: 620px;
+    line-height: 1.7;
+}
+
+/* Filter chips */
+.aarti-filters {
+    display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;
+    padding: 2rem 1rem 1rem;
+}
+.chip {
+    padding: 0.55rem 1.4rem;
+    border-radius: 30px;
+    border: 1.5px solid var(--clr-saffron, #e67300);
+    background: #fffdf5;
+    color: var(--clr-maroon, #7b1e1e);
+    font-family: inherit; font-size: 0.92rem;
+    cursor: pointer; transition: all 0.3s;
+}
+.chip:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(230,115,0,0.25); }
+.chip.active {
+    background: linear-gradient(135deg, #ff9933, var(--clr-saffron, #e67300));
+    color: #fff; border-color: transparent;
+    box-shadow: 0 6px 18px rgba(230,115,0,0.4);
+}
+
+/* Grid & Cards (Overriding opacity:0 from animation.css reveal) */
+.aarti-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.75rem;
+    padding: 1.5rem 1rem 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.aarti-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: linear-gradient(145deg, #fffdf5, #fdf3d8);
+    border: 1.5px solid #e8c98a;
+    border-radius: 18px;
+    padding: 1.8rem 1.6rem;
+    cursor: pointer;
+    position: relative; overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.aarti-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 35px rgba(107,20,16,0.18);
+    border-color: #d4af37;
+}
+.aarti-card::before {
+    content: ""; position: absolute; top:0; left:0; right:0; height: 5px;
+    background: linear-gradient(90deg, #ff9933, #d4af37, #ff9933);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+}
+.aarti-card:hover::before { transform: scaleX(1); }
+.aarti-icon {
+    font-size: 2.4rem;
+    width: 66px; height: 66px;
+    display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle, #fdeecb, #f5d67b);
+    border-radius: 50%;
+    border: 2px solid #d4af37;
+    box-shadow: 0 4px 12px rgba(212,175,55,0.35);
+    margin-bottom: 1rem;
+}
+.aarti-card h3 {
+    color: var(--clr-maroon, #7b1e1e);
+    font-size: 1.25rem;
+    line-height: 1.4;
+    margin: 0;
+}
+.aarti-card .aarti-meta { display: flex; gap: 0.4rem; margin-top: 0.7rem; flex-wrap: wrap; }
+.badge {
+    font-size: 0.72rem; padding: 0.25rem 0.75rem;
+    border-radius: 12px; letter-spacing: 0.5px;
+}
+.badge-deity { background: #fbe3c2; color: #a03e00; border: 1px solid #eec27f; }
+.badge-lang  { background: #efe6f7; color: #5b3a8e; border: 1px solid #d3bff0; }
+.aarti-preview {
+    margin-top: 0.9rem; font-size: 0.88rem; color: #7a5a33;
+    font-style: italic; line-height: 1.6;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.read-cta {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    margin-top: 1rem;
+    color: var(--clr-saffron, #e67300);
+    font-weight: bold; font-size: 0.92rem;
+    transition: gap 0.3s;
+}
+.aarti-card:hover .read-cta { gap: 0.8rem; }
+
+/* ================================================================
+   READER MODAL
+================================================================ */
+.reader-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: rgba(30, 8, 5, 0.78);
+    backdrop-filter: blur(6px);
+    display: none;
+    align-items: flex-start; justify-content: center;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+}
+.reader-overlay.open { display: flex; animation: readerFadeIn 0.3s ease; }
+@keyframes readerFadeIn { from { opacity:0; } to { opacity:1; } }
+
+.reader-modal {
+    background: #fdf6e3;
+    max-width: 820px; width: 100%;
+    border-radius: 20px;
+    border: 2px solid #d4af37;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.5);
+    margin: auto;
+}
+
+.reader-toolbar {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 0.6rem;
+    padding: 1rem 1.4rem;
+    border-bottom: 1px solid rgba(212,175,55,0.4);
+    background: linear-gradient(90deg, rgba(212,175,55,0.1), transparent);
+    border-radius: 20px 20px 0 0;
+}
+.aarti-tool-btn {
+    background: #fffdf5;
+    border: 1.5px solid #d9a94f;
+    color: var(--clr-maroon, #7b1e1e);
+    padding: 0.5rem 1rem;
+    border-radius: 22px;
+    cursor: pointer;
+    font-family: inherit; font-size: 0.88rem;
+    transition: all 0.25s;
+    display: inline-flex; align-items: center; gap: 0.35rem;
+}
+.aarti-tool-btn:hover {
+    background: #d4af37; color: #4a0d0b;
+    transform: translateY(-2px);
+}
+.aarti-tool-btn.lang-btn {
+    background: linear-gradient(135deg, #ff9933, #e67300);
+    color: #fff; border-color: transparent;
+    font-weight: bold;
+}
+.aarti-tool-btn.lang-btn:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 6px 18px rgba(230,115,0,0.4); }
+
+.reader-body {
+    padding: 2.2rem 2.4rem 2.4rem;
+    position: relative;
+}
+.reader-body::before {
+    content: ""; position: absolute;
+    top: 0.8rem; bottom: 0.8rem; left: 0.8rem; right: 0.8rem;
+    border: 1px dashed rgba(212,175,55,0.5);
+    border-radius: 12px; pointer-events: none;
+}
+.reader-icon { text-align: center; font-size: 3rem; }
+.reader-title {
+    text-align: center;
+    color: var(--clr-maroon, #7b1e1e);
+    font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+}
+.reader-meta { text-align: center; margin-top: 0.6rem; }
+.reader-orn { text-align: center; color: #d4af37; margin: 1rem 0 1.8rem; letter-spacing: 6px; }
+
+/* Verses */
+#aartiVersesArea {
+    font-size: var(--aarti-reader-fs, 1.12rem);
+    color: #3d1f08;
+    transition: font-size 0.2s, opacity 0.25s;
+    line-height: 2;
+}
+#aartiVersesArea.script-swap { opacity: 0; }
+
+.verse-block { text-align: center; margin-bottom: 1.4rem; }
+.verse-block p { margin: 0.1em 0; }
+
+.chorus-block {
+    text-align: center;
+    color: #c1440e; font-weight: bold;
+    margin: 1.4rem 0;
+    padding: 0.8rem 1rem;
+    background: linear-gradient(to right, transparent, #fdeecb 20%, #fdeecb 80%, transparent);
+    border-radius: 10px;
+}
+.chorus-block p { margin: 0.1em 0; }
+.vnum { color: var(--clr-saffron, #e67300); }
+
+/* Reader footer nav */
+.reader-nav {
+    display: flex; justify-content: space-between; gap: 0.8rem;
+    padding: 1rem 1.4rem 1.4rem;
+    border-top: 1px solid rgba(212,175,55,0.4);
+}
+.nav-arrow {
+    flex: 1; max-width: 240px;
+    background: #fffdf5;
+    border: 1.5px solid #d9a94f;
+    border-radius: 14px;
+    padding: 0.8rem 1rem;
+    cursor: pointer; font-family: inherit;
+    text-align: left; transition: all 0.25s;
+    color: #3d1f08;
+}
+.nav-arrow.next { text-align: right; }
+.nav-arrow:hover:not(:disabled) {
+    background: #d4af37; transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(212,175,55,0.35);
+}
+.nav-arrow .dir {
+    font-size: 0.72rem; color: var(--clr-saffron, #e67300);
+    display: block; letter-spacing: 1px; text-transform: uppercase;
+}
+.nav-arrow .ttl {
+    font-size: 0.9rem; font-weight: bold;
+    color: var(--clr-maroon, #7b1e1e); display: block; margin-top: 0.25rem;
+}
+.nav-arrow:disabled { opacity: 0.35; cursor: not-allowed; }
+
+/* Toast */
+#aartiToast {
+    position: fixed; bottom: 30px; left: 50%;
+    transform: translateX(-50%) translateY(120px);
+    background: var(--clr-maroon, #6b1410);
+    color: #f5d67b;
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    border: 1.5px solid #d4af37;
+    z-index: 10000;
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    font-size: 0.92rem;
+}
+#aartiToast.show { transform: translateX(-50%) translateY(0); }
+
+@media (max-width: 720px) {
+    .reader-body { padding: 1.6rem 1.2rem; }
+    .reader-toolbar { padding: 0.8rem; }
+    .reader-nav { flex-direction: column; padding: 1rem; }
+    .nav-arrow { max-width: 100%; }
+}
+
+/* ================= HERO ================= */
+
+#hero{
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    background:linear-gradient(135deg,#4b0d0d,#731717,#330808);
+
+    color:#fff;
+
+    padding:120px 20px;
+}
+
+.hero-bg{
+
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at 20% 20%,rgba(255,180,0,.18),transparent 40%),
+    radial-gradient(circle at 80% 80%,rgba(255,120,0,.15),transparent 35%);
+
+    animation:bgMove 10s linear infinite alternate;
+}
+
+@keyframes bgMove{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.2);
+    }
+
+}
+
+.mandala{
+
+    position:absolute;
+
+    width:900px;
+    opacity:.08;
+
+    animation:spin 120s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+.hero-content{
+
+    position:relative;
+    z-index:5;
+
+}
+
+.hero-icon{
+
+    font-size:100px;
+
+    color:#FFD54F;
+
+    text-shadow:0 0 40px gold;
+
+    animation:float 3s ease-in-out infinite;
+
+}
+
+@keyframes float{
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+#hero h1{
+
+    font-size:70px;
+
+    margin:10px 0;
+
+    font-family:"Yatra One",cursive;
+
+}
+
+#hero h3{
+
+    font-size:22px;
+
+    color:#FFE082;
+
+    letter-spacing:2px;
+
+}
+
+#hero p{
+
+    margin-top:25px;
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    color:#f7e7c4;
+
+}
+
+.hero-buttons{
+
+    margin-top:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.hero-btn{
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    transition:.35s;
+
+    font-size:18px;
+
+}
+
+.primary{
+
+    background:#ff9800;
+
+    color:white;
+
+}
+
+.primary:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 12px 30px rgba(255,152,0,.5);
+
+}
+
+.secondary{
+
+    border:2px solid #FFD54F;
+
+    color:#FFD54F;
+
+}
+
+.secondary:hover{
+
+    background:#FFD54F;
+
+    color:#5d0909;
+
+}
+
+.hero-stats{
+
+    margin-top:60px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:55px;
+
+    flex-wrap:wrap;
+
+}
+
+.hero-stats div{
+
+    text-align:center;
+
+}
+
+.hero-stats span{
+
+    display:block;
+
+    font-size:42px;
+
+    color:#FFD54F;
+
+    font-weight:bold;
+
+}
+
+.hero-stats small{
+
+    font-size:15px;
+
+    color:#eee;
+
+}
+
+.scroll-down{
+
+    position:absolute;
+
+    bottom:30px;
+
+    font-size:40px;
+
+    animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+    50%{
+
+        transform:translateY(10px);
+
+    }
+
+}
+
+.floating{
+
+    position:absolute;
+
+    bottom:-50px;
+
+    animation:rise linear infinite;
+
+    opacity:.9;
+
+    filter:drop-shadow(0 0 10px orange);
+
+}
+
+@keyframes rise{
+
+    from{
+
+        transform:translateY(0);
+
+        opacity:0;
+
+    }
+
+    15%{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateY(-120vh);
+
+        opacity:0;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+#hero h1{
+
+font-size:42px;
+
+}
+
+.hero-icon{
+
+font-size:70px;
+
+}
+
+.hero-stats{
+
+gap:25px;
+
+}
+
+.hero-stats span{
+
+font-size:30px;
+
+}
+
+}
+
+
+</style>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main>
+
+<!-- HERO -->
+<!-- ================= HERO SECTION ================= -->
+<section id="hero">
+
+    <!-- Floating Background -->
+    <div class="hero-bg"></div>
+
+    <!-- Mandala -->
+    <svg class="mandala" viewBox="0 0 200 200">
+        <g fill="none" stroke="#FFD54F" stroke-width=".6">
+            <circle cx="100" cy="100" r="92"/>
+            <circle cx="100" cy="100" r="72"/>
+            <circle cx="100" cy="100" r="52"/>
+            <circle cx="100" cy="100" r="32"/>
+            <g id="petals"></g>
+        </g>
+    </svg>
+
+    <!-- Floating Lamps -->
+    <div id="floatingItems"></div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+
+        <div class="hero-icon">ॐ</div>
+
+        <h1>॥ आरती संग्रह ॥</h1>
+
+        <h3>A Sacred Collection of Hindu Aartis</h3>
+
+        <p>
+            गणेश • देवी • शिव • विष्णु • विठ्ठल • संत आरत्या
+            <br>
+            All Devotional Aartis at One Place
+        </p>
+
+        <div class="hero-buttons">
+            <a href="javascript:void(0)" class="hero-btn primary" onclick="window.openAartiReader(0)">
+                🪔 Read Aartis
+            </a>
+
+            <!-- <a href="#" class="hero-btn secondary">
+                📖 Explore
+            </a> -->
+        </div>
+
+        <div class="hero-stats">
+
+            <div>
+                <span class="counter" data-target="13">0</span>
+                <small>Aartis</small>
+            </div>
+
+            <div>
+                <span class="counter" data-target="6">0</span>
+                <small>Gods</small>
+            </div>
+
+            <div>
+                <span class="counter" data-target="2">0</span>
+                <small>Languages</small>
+            </div>
+
+            <div>
+                <span class="counter" data-target="108">0</span>
+                <small>Verses</small>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-down">
+        ⌄
+    </div>
+
+</section>
+
+<!-- FILTERS -->
+<section class="section" style="padding-top:2rem; padding-bottom:0">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Filter by Deity</span>
+            <h2>Choose an Aarti</h2>
+        </div>
+        <div class="aarti-filters" id="aartiCategoryFilters">
+            <button class="chip active" data-cat="all">सर्व (All)</button>
+            <button class="chip" data-cat="Ganesh">🐘 गणेश</button>
+            <button class="chip" data-cat="Vishnu">🦚 विष्णु / विठ्ठल</button>
+            <button class="chip" data-cat="Devi">🌺 देवी</button>
+            <button class="chip" data-cat="Shiva">🔱 शिव</button>
+            <button class="chip" data-cat="Saint">🙏 संत</button>
+        </div>
+    </div>
+</section>
+
+<!-- GRID -->
+<section class="section" style="padding-top:0">
+    <div class="container">
+        <div class="aarti-grid" id="aartiGrid"></div>
+    </div>
+</section>
+
+</main>
+
+<!-- READER MODAL -->
+<div class="reader-overlay" id="aartiReaderModal">
+    <div class="reader-modal">
+        <div class="reader-toolbar">
+            <button class="aarti-tool-btn" onclick="closeAartiReader()">← Back</button>
+            <div style="display:inline-flex; gap:0.4rem; align-items:center;">
+                <button class="aarti-tool-btn" onclick="adjustAartiFontSize(-1)" title="Smaller text">अ−</button>
+                <button class="aarti-tool-btn" onclick="adjustAartiFontSize(1)" title="Bigger text">अ+</button>
+                <button class="aarti-tool-btn" onclick="shareAartiText()" title="Share">↗ Share</button>
+                <button class="aarti-tool-btn lang-btn" id="aartiScriptToggleBtn" onclick="toggleAartiScript()" title="Switch Script">
+                    <span id="aartiScriptBtnLabel">🔤 English</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="reader-body">
+            <div class="reader-icon" id="rIcon"></div>
+            <h2 class="reader-title" id="rTitle"></h2>
+            <div class="reader-meta" id="rMeta"></div>
+            <p class="reader-orn">❁ ❁ ❁</p>
+            <div id="aartiVersesArea"></div>
+        </div>
+
+        <div class="reader-nav">
+            
+            <button class="nav-arrow prev" id="prevBtn" onclick="navigateAarti(-1)">
+                <span class="dir">← Previous</span>
+                <span class="ttl" id="prevTitle">—</span>
+            </button>
+
+            <button class="nav-arrow next" id="nextBtn" onclick="navigateAarti(1)">
+                <span class="dir">Next →</span>
+                <span class="ttl" id="nextTitle">—</span>
+            </button>
+            
+        </div>
+    </div>
+</div>
+
+<div id="aartiToast"></div>
+
+<div id="footer-placeholder"></div>
+
+<!-- Site standard scripts -->
+<script src="js/language.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/components.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Dedicated Isolated Script for Aarti Collection -->
+<script>
+(function() {
+
+    const SCRIPT_STORAGE_KEY = "aarti_script";
+    /* Safe Scope - Prevents variable collisions with site scripts */
+    const AARTI_LIST = [
+    {
+        id:'ganesh', icon:'🐘', cat:'Ganesh',
+        title:{ dev:'श्री गणेशजी की आरती', eng:'Shri Ganeshji Ki Aarti' },
+        deity:{ dev:'गणेश', eng:'Ganesh' },
+        lang :{ dev:'हिंदी', eng:'Hindi' },
+        blocks:[
+            { t:'c', dev:['जय गणेश, जय गणेश, जय गणेश देवा।','माता जाकी पार्वती, पिता महादेवा॥'], eng:['Jai Ganesh, Jai Ganesh, Jai Ganesh Deva.','Mata jaki Parvati, pita Mahadeva.'] },
+            { t:'v', n:'१', ne:'1', dev:['एक दंत दयावंत, चार भुजा धारी।','माथे पर तिलक सोहे, मूसे की सवारी॥'], eng:['Ek dant dayaavant, chaar bhuja dhaari.','Maathe par tilak sohe, moose ki savaari.'] },
+            { t:'c', dev:['जय गणेश, जय गणेश, जय गणेश देवा।','माता जाकी पार्वती, पिता महादेवा॥'], eng:['Jai Ganesh, Jai Ganesh, Jai Ganesh Deva.','Mata jaki Parvati, pita Mahadeva.'] },
+            { t:'v', n:'२', ne:'2', dev:['पान चढ़े फूल चढ़े, और चढ़े मेवा।','लड्डुअन का भोग लगे, संत करे सेवा॥'], eng:['Paan chadhe phool chadhe, aur chadhe meva.','Laduvan ka bhog lage, sant kare seva.'] },
+            { t:'c', dev:['जय गणेश, जय गणेश, जय गणेश देवा।','माता जाकी पार्वती, पिता महादेवा॥'], eng:['Jai Ganesh, Jai Ganesh, Jai Ganesh Deva.','Mata jaki Parvati, pita Mahadeva.'] },
+            { t:'v', n:'३', ne:'3', dev:['अंधन को आँख देत, कोढ़िन को काया।','बाँझन को पुत्र देत, निर्धन को माया॥'], eng:['Andhan ko aankh det, kodhin ko kaaya.','Baanjhan ko putra det, nirdhan ko maaya.'] },
+            { t:'c', dev:['जय गणेश, जय गणेश, जय गणेश देवा।','माता जाकी पार्वती, पिता महादेवा॥'], eng:['Jai Ganesh, Jai Ganesh, Jai Ganesh Deva.','Mata jaki Parvati, pita Mahadeva.'] },
+            { t:'v', n:'४', ne:'4', dev:['दीनन की लाज रखो, शंभु सुतकारी।','कामना को पूर्ण करो, जाऊं बलिहारी॥'], eng:['Deenan ki laaj rakho, shambhu sutkaari.','Kaamana ko poorn karo jaoon balihaari.'] },
+            { t:'c', dev:['जय गणेश, जय गणेश, जय गणेश देवा।','माता जाकी पार्वती, पिता महादेवा॥'], eng:['Jai Ganesh, Jai Ganesh, Jai Ganesh Deva.','Mata jaki Parvati, pita Mahadeva.'] }
+        ]
+    },
+    {
+        id:'jagdish', icon:'🦚', cat:'Vishnu',
+        title:{ dev:'ॐ जय जगदीश हरे', eng:'Om Jai Jagdish Hare' },
+        deity:{ dev:'विष्णु', eng:'Vishnu' },
+        lang :{ dev:'हिंदी', eng:'Hindi' },
+        blocks:[
+            { t:'c', n:'१', ne:'1', dev:['ॐ जय जगदीश हरे, स्वामी जय जगदीश हरे।','भक्त जनों के संकट, दास जनों के संकट,','क्षण में दूर करे॥'], eng:['Om Jai Jagadish Hare, Swami Jai Jagadish Hare.','Bhakta janon ke sankat, Dasa janon ke sankat,','Kshan me door kare.'] },
+            { t:'v', n:'२', ne:'2', dev:['जो ध्यावे फल पावे, दुख विनशे मन का।','स्वामी दुख विनशे मन का।','सुख सम्पत्ति घर आवे, सुख सम्पत्ति घर आवे,','कष्ट मिटे तन का॥'], eng:['Jo dhyave phal paave, dukh vinashe man ka.','Swami dukh vinashe man ka.','Sukha sampati ghar aave, Sukha sampati ghar aave,','Kashht mite tan ka.'] },
+            { t:'v', n:'३', ne:'3', dev:['मात पिता तुम मेरे, शरण पड़ूँ मैं किसकी।','स्वामी शरण पड़ूँ मैं किसकी।','तुम बिन और न दूजा, तुम बिन और न दूजा,','आशा करूँ मैं किसकी॥'], eng:['Mata pita tum mere, sharan padun mai kis ki.','Swami sharan padum mai kis ki.','Tum bina aur na doojaa, Tum bina aur na doojaa,','Asha karun mai kis ki.'] },
+            { t:'v', n:'४', ne:'4', dev:['तुम पूर्ण परमात्मा, तुम अन्तर्यामी।','स्वामी तुम अन्तर्यामी।','परब्रह्म परमेश्वर, परब्रह्म परमेश्वर,','तुम सब के स्वामी॥'], eng:['Tum pooran Paramatma, Tum Antaryaami.','Swami Tum Antaryaami.','Para brahma Parameshwara, Para brahma Parameshwara,','Tum sab ke Swami.'] },
+            { t:'v', n:'५', ne:'5', dev:['तुम करुणा के सागर, तुम पालन कर्ता।','स्वामी तुम पालन कर्ता।','मैं सेवक तुम स्वामी, मैं सेवक तुम स्वामी,','कृपा करो भर्ता॥'], eng:['Tum karuna ke saagar, Tum palan karta.','Swami Tum palan karta.','Mai sevak tum swaami, Mai sevak tum swaami,','Kripa karo Dhartaa.'] },
+            { t:'v', n:'६', ne:'6', dev:['तुम हो एक अगोचर, सब के प्राणपति।','स्वामी सब के प्राणपति।','किस विधि मिलूँ दयामय, किसी विधि मिलूँ दयामय,','तुमको मैं कुमति॥'], eng:['Tum ho ek agochar, Sab ke prana pati.','Swami sab ke prana pati.','Kis vidhi miloon dayamaya, Kisi vidhi miloon dayamaya,','Tum ko mai kumati.'] },
+            { t:'v', n:'७', ne:'7', dev:['दीन बन्धु दुख हर्ता, तुम रक्षक मेरे।','स्वामी तुम रक्षक मेरे।','अपने हस्त उठाओ, अपने हस्त उठाओ,','द्वार खड़ा मैं तेरे॥'], eng:['Deena bandhu dukh hartaa, Tum rakshak mere.','Swami tum rakshak mere.','Apane hast uthao, Apane hast uthao,','Dwar khada mai tere.'] },
+            { t:'v', n:'८', ne:'8', dev:['विषय विकार मिटाओ, पाप हरो देवा।','स्वामी पाप हरो देवा।','श्रद्धा भक्ति बढ़ाओ, श्रद्धा भक्ति बढ़ाओ,','संतन की सेवा॥'], eng:['Vishaya vikar mithao, Paap haro deva.','Swami paap haro deva.','Shraddha bhakti badhao, Shraddha bhakti badhao,','Santan ki seva.'] },
+            { t:'v', n:'९', ne:'9', dev:['तन मन धन सब कुछ है तेरा।','स्वामी सब कुछ है तेरा।','तेरा तुझको अर्पण, तेरा तुझको अर्पण,','क्या लागे मेरा॥'], eng:['Tan man dhan sab kuch hai tera.','Swami sab kuch hai tera.','Tera tujh ko arpan, Tera tujh ko arpan,','Kya laage mera.'] },
+            { t:'c', n:'१०', ne:'10', dev:['ॐ जय जगदीश हरे, स्वामी जय जगदीश हरे।','भक्त जनों के संकट, दास जनों के संकट,','क्षण में दूर करे॥'], eng:['Om Jai Jagadish Hare, Swami Jai Jagadish Hare.','Bhakta janon ke sankat, Dasa janon ke sankat,','Kshan me door kare.'] }
+        ]
+    },
+    {
+        id:'sukhkarta', icon:'🐘', cat:'Ganesh',
+        title:{ dev:'सुखकर्ता दुखहर्ता', eng:'Sukhkarta Dukhharta' },
+        deity:{ dev:'गणेश', eng:'Ganesh' },
+        lang :{ dev:'मराठी', eng:'Marathi' },
+        blocks:[
+            { t:'v', dev:['सुखकर्ता दुखहर्ता वार्ता विघ्नाची।','नुरवी पुरवी प्रेम कृपा जयाची॥','सर्वांगी सुंदर उटी शेंदुराची।','कंठी झळके माळ मुक्ताफळांची॥'], eng:['Sukhkarta Dukhharta Varta Vighnachi.','Noorvi Poorvi Prem Krupya Jayachii.','Sarwangi Sundar Utishendu Rachii.','Kanthi Jhalke Maad Mukhta Padhanchi.'] },
+            { t:'c', dev:['जय देव जय देव, जय मंगल मूर्ती।','दर्शनमात्रे मन कामना पूर्ती॥ जय देव जय देव॥'], eng:['Jai Dev Jai Dev, Jai Mangal Murti.','Darshan Marte Maan Kamana Purti. Jai Dev Jai Dev.'] },
+            { t:'v', dev:['रत्नाखचित फरा तुझ गौरीकुमरा।','चंदनाची उटी कुंकुम केशरा॥','हीरे जडित मुकुट शोभतो बरा।','रूनझुनती नूपुरे चरणी घागरिया॥'], eng:['Ratnakhachit Phara Tujh Gaurikumra.','Chandanaachi Uti Kumkum Ke Shara.','Hire Jadit Mukut Shobhato Bara.','Runjhunati Nupure Charani Ghagriya.'] },
+            { t:'c', dev:['जय देव जय देव, जय मंगल मूर्ती।','दर्शनमात्रे मन कामना पूर्ती॥ जय देव जय देव॥'], eng:['Jai Dev Jai Dev, Jai Mangal Murti.','Darshan Marte Maan Kamana Purti. Jai Dev Jai Dev.'] },
+            { t:'v', dev:['लंबोदर पीतांबर फणिवर वंदना।','सरळ सोंड वक्रतुंड त्रिनयना॥','दास रामाचा वाट पाहे सदना।','संकटी पावावे, निर्वाणी रक्षावे, सुरवर वंदना॥'], eng:['Lambodar Pitaambar Phanivar Vandana.','Saral Sond Vakratunda Trinayana.','Das Ramacha Vat Pahe Sadna.','Sankati Pavave Nirvani Rakshave Survar Vandana.'] },
+            { t:'c', dev:['जय देव जय देव, जय मंगल मूर्ती।','दर्शनमात्रे मन कामना पूर्ती॥ जय देव जय देव॥'], eng:['Jai Dev Jai Dev, Jai Mangal Murti.','Darshan Marte Maan Kamana Purti. Jai Dev Jai Dev.'] }
+        ]
+    },
+    {
+        id:'shendur', icon:'🐘', cat:'Ganesh',
+        title:{ dev:'शेंदुर लाल चढ़ायो', eng:'Shendur Lal Chadhayo' },
+        deity:{ dev:'गणेश', eng:'Ganesh' },
+        lang :{ dev:'हिंदी', eng:'Hindi' },
+        blocks:[
+            { t:'v', dev:['शेंदुर लाल चढ़ायो अच्छा गजमुखको।','दोंदिल लाल बिराजे सुत गौरिहरको॥','हाथ लिए गुड-लड्डू, साईं सुरवर को।','महिमा कहे न जाय, लागत हूँ पद को॥'], eng:['Shendur lal chadhayo achchha gajmukhko.','Dondil laal biraaje sut gauriharako.','Haath liye gud-laddoo, saai suravar ko.','Mahima kahe na jaay, laagat hoo pad ko.'] },
+            { t:'c', dev:['जय देव, जय देव॥','जय जय श्री गणराज विद्या सुख दाता।','धन्य तुम्हारा दर्शन मेरा मन रमता॥','जय देव, जय देव॥'], eng:['Jay dev, jay dev.','Jai jai Shri Ganraj vidya sukh data.','Dhanya tumhaara darshan mera man ramataa.','Jai dev, jai dev.'] },
+            { t:'v', dev:['भाव भगत से कोई शरणागत आवे।','संतत संपत्ति सभी भरपूर पावे॥','ऐसे तुम महाराज मोको अति भावे।','गोसावी नंदन निशिदिन गुण गावे॥'], eng:['Bhaav bhagat se koi sharanaagat aave.','Santat sampat sab hi bharapoor paave.','Aise tum mahaaraaj moko ati bhaave.','Gosaavi nandan nishidin gun gaave.'] },
+            { t:'c', dev:['जय देव, जय देव॥','जय जय जी गणराज विद्या सुख दाता।','हो स्वामी सुख दाता।','धन्य तुम्हारा दर्शन मेरा मन रमता॥','जय देव, जय देव॥'], eng:['Jai dev, jai dev.','Jai jai ji Ganraj vidya sukh data.','Ho swami sukh data.','Dhanya tumhaara darshan mera man ramataa.','Jai dev, jai dev.'] }
+        ]
+    },
+    {
+        id:'devi', icon:'🌺', cat:'Devi',
+        title:{ dev:'देवीची आरती', eng:'Devichi Aarti' },
+        deity:{ dev:'दुर्गा', eng:'Durga' },
+        lang :{ dev:'मराठी', eng:'Marathi' },
+        blocks:[
+            { t:'v', n:'१', ne:'1', dev:['दुर्गे दुर्घट भारी तुजविण संसारी।','अनाथ नाथे अंबे करुणा विस्तारी॥','वारी वारी जन्म मरणाते वारी।','हारी पडलो आता संकट निवारी॥'], eng:['Durge Durghat Bhaari Tujvin Sansari.','Anath Naathe Ambe Karunaa Vistaari.','Vaari Vaari Janma Maranaate Vaari.','Haari Padalo Aata Sankat Nivaari.'] },
+            { t:'c', dev:['जय देवी जय देवी महिषासुरमथिनी।','सुरवर ईश्वर वरदे तारक संजीवनी॥','जय देवी जय देवी॥'], eng:['Jay Devi Jay Devi Mahishasurmathini.','Survarishwarwarde Taarak Sanjeevani.','Jay Devi Jay Devi.'] },
+            { t:'v', n:'२', ne:'2', dev:['त्रिभुवन भुवनी पाहता तुझ ऐसी नाहीं।','चारी श्रमले परंतु न बोलवे काहीं॥','साही विवाद करिता पडले प्रवाही।','ते तू भक्तालागी पावसी लवलाही॥'], eng:['Tribhuvanbhuvani Paahata Tuj Aisi Naahii.','Chaari Shramale Parantu Na Bolave Kaahi.','Saahi Vivaad Karita Padale Pravaahi.','Te Tu Bhaktaalagi Paavasi Lavlahii.'] },
+            { t:'c', dev:['जय देवी जय देवी महिषासुरमथिनी।','सुरवर ईश्वर वरदे तारक संजीवनी॥','जय देवी जय देवी॥'], eng:['Jay Devi Jay Devi Mahishasurmathini.','Survarishwarwarde Tarak Sanjeevani.','Jay Devi Jay Devi.'] },
+            { t:'v', n:'३', ne:'3', dev:['प्रसन्न वदने प्रसन्न होसी निजदासा।','क्लेशांपासून सोडवी तोडी भवपाशा॥','अंबे तुज वाचून कोण पुरवील आशा।','नरहर टल्लीन झाला पदपंकजलेशा॥'], eng:['Prasanna Vadane Prasanna Hosi Nijdaasa.','Kleshanpasun Sodavi Todee Bhavapaasha.','Ambe Tuj Vaachun Kon Purvil Aasha.','Narhar Talleen Zala Padpankajalesha.'] },
+            { t:'c', dev:['जय देवी जय देवी महिषासुरमथिनी।','सुरवर ईश्वर वरदे तारक संजीवनी॥','जय देवी जय देवी॥'], eng:['Jay Devi Jay Devi Mahishasurmathini.','Survarishwarwarde Tarak Sanjeevani.','Jay Devi Jay Devi.'] }
+        ]
+    },
+    {
+        id:'shankar', icon:'🔱', cat:'Shiva',
+        title:{ dev:'श्री शंकराची आरती', eng:'Shri Shankarachi Aarti' },
+        deity:{ dev:'शिव', eng:'Shiva' },
+        lang :{ dev:'मराठी', eng:'Marathi' },
+        blocks:[
+            { t:'v', dev:['लवठवती विक्राळा ब्रह्मांडी माळा।','विषे कंठ काळा त्रिनेत्री ज्वाला॥','लावण्य सुंदर मस्तकी बाळा।','तेथूनिया जळ निर्मळ वहे झुळझुळ॥'], eng:['Lavathavati Vikrala Brahmandi Mala.','Vishe Kantha Kala Trinetri Jwala.','Lavanya Sundara Mastaki Bala.','Tethuniya Jala Nirmala Vahe Jhulajhula.'] },
+            { t:'c', dev:['जय देव जय देव जय श्री शंकरा।','आरती ओवाळू तुज कर्पूरगौरा॥'], eng:['Jai Deva Jai Deva Jai Shri Shankara.','Aarti Ovalu Tuja Karpuragaura.'] },
+            { t:'v', dev:['कर्पूरगौरा भोळा नयनी विशाळा।','अर्धांगी पार्वती सुमनांच्या माळा॥','विभूतिचे उधळण शितिकंठ नीळा।','ऐसा शंकर शोभे उमावेळ्हाळा॥'], eng:['Karpuragaura Bhola Nayani Vishala.','Ardhangi Parvati Sumananchya Mala.','Vibhutiche Udhalana Shitikantha Nila.','Aisa Shankar Shobhe Umavelhala.'] },
+            { t:'c', dev:['जय देव जय देव जय श्री शंकरा।','आरती ओवाळू तुज कर्पूरगौरा॥'], eng:['Jai Deva Jai Deva Jai Shri Shankara.','Aarti Ovalu Tuja Karpuragaura.'] },
+            { t:'v', dev:['देवी दैत्यी सागरमंथन पै केले।','त्यामाजी अवचित हलाहल जे उठिले॥','ते त्वा असुरपणे प्राशन केले।','नीलकंठ नाम प्रसिद्ध झाले॥'], eng:['Devi Daityi Sagaramanthana Pai Kele.','Tyamaji Avachita Halahala Je Uthile.','Te Tva Asurapane Prashana Kele.','Nilakantha Nama Prasiddha Jhale.'] },
+            { t:'c', dev:['जय देव जय देव जय श्री शंकरा।','आरती ओवाळू तुज कर्पूरगौरा॥'], eng:['Jai Deva Jai Deva Jai Shri Shankara.','Aarti Ovalu Tuja Karpuragaura.'] },
+            { t:'v', dev:['व्याघ्रांबर फणीवरधर सुंदर मदनारी।','पंचानन मनोमोहन मुनिजन सुखकारी॥','शतकोटीचे बीज वाचे उच्चारी।','रघुकुलतिलक रामदास अंतरी॥'], eng:['Vyaghrambara Phanivardhara Sundara Madanari.','Panchanana Manamohana Munijana Sukhakari.','Shatakotiche Beej Vache Uchchari.','Raghukulatilaka Ramadasa Antari.'] },
+            { t:'c', dev:['जय देव जय देव जय श्री शंकरा।','आरती ओवाळू तुज कर्पूरगौरा॥'], eng:['Jai Deva Jai Deva Jai Shri Shankara.','Aarti Ovalu Tuja Karpuragaura.'] }
+        ]
+    },
+    {
+        id:'gyanraja', icon:'📿', cat:'Saint',
+        title:{ dev:'ज्ञान राजा आरती', eng:'Gyan Raja Aarti' },
+        deity:{ dev:'ज्ञानेश्वर', eng:'Dnyaneshwar' },
+        lang :{ dev:'मराठी', eng:'Marathi' },
+        blocks:[
+            { t:'v', n:'१', ne:'1', dev:['आरती ज्ञानराजा, महाकैवल्यतेजा।','सेविती साधुसंत, मनु वेधला माझा॥','लोपलें ज्ञान जगीं, ते नेणेती कोणी।','अवतार पांडुरंग, नाम ठेविलें ज्ञानी॥'], eng:['Aarti Gyanraja, Mahakaivalyateja.','Seviti sadhusant, Manu vedhla mazha.','Loplen Gyan jagin, Ta neneti koni,','Avtaar Pandurang, Naam thevilen gyani.'] },
+            { t:'v', n:'२', ne:'2', dev:['कनकांचे ताट करीन, उभ्या गोपिका नारी।','नारद तुंबुरु हो, साम गान करी॥'], eng:['Kanakancha tata karin, Ubhya Gopika nari,','Narad Tumbaru ho, Sam gaan kari.'] },
+            { t:'v', n:'३', ne:'3', dev:['प्रगट गुह्य बोले, विश्व ब्रह्माची केल।','रामा जनार्दनी, पायीं ठकाची ठेल॥'], eng:['Prgat guhya bole, Vishwa Brahmachi kel,','Rama Janardani, Payin thakachi thel.'] }
+        ]
+    },
+    {
+        id:'vitthale', icon:'🪕', cat:'Vishnu',
+        title:{ dev:'येई हो विठ्ठले', eng:'Yei Ho Vitthale' },
+        deity:{ dev:'विठ्ठल', eng:'Vitthal' },
+        lang :{ dev:'मराठी', eng:'Marathi' },
+        blocks:[
+            { t:'c', dev:['येई हो विठ्ठले माझे माऊली ये।','येई हो विठ्ठले माझे माऊली ये॥'], eng:['Ye hi ho Vithale mazhe mauli ye.','Ye hi ho Vithale mazhe mauli ye.'] },
+            { t:'v', n:'१', ne:'1', dev:['निधळावरी कर ठेवुनी वाट मी पाहें।','ठेवुनी वाट मी पाहें॥'], eng:['Nidhalaavari kar thevuni vaat mi paahen.','Thevuni vaat mi paahen.'] },
+            { t:'v', n:'२', ne:'2', dev:['अलिया गेलिया हाती धाडी निरूप।','पंढरपुरी आहे माझा मायबाप।','हो माझा मायबाप॥'], eng:['Aliya geliya haati dhaadi niroop.','Pandharpuri ahe maza maybaap.','Ho maza maybaap.'] },
+            { t:'v', n:'३', ne:'3', dev:['पिवळा पीतांबर कैसा गगनी झळकला।','गरुडावरी बैसोनी माझा कैवारी आला।','हो माझा कैवारी आला॥'], eng:['Pivla pitambar kaisa gagni jhalkala.','Garudavari baiseoni maza kaivari aala.','Ho maza kaivari aala.'] },
+            { t:'v', n:'४', ne:'4', dev:['विठोबाचें राज्य अम्हा नित्य दिपावली।','विष्णुदास नामा जीवे भावें ओवाळी।','हो जीवे भावें ओवाळी॥'], eng:['Vitobachen rajya amha nitya dipawali.','Vishnudas nama jive bhaven ovaali.','Ho jive bhaven ovaali.'] },
+            { t:'v', n:'५', ne:'5', dev:['असो नासो भाव अम्हा तुझ्या ठायीं।','कृपादृष्टी पाहें माझ्या पंढरीराया।','हो माझ्या पंढरीराया॥'], eng:['Aso naso bhaav amha tuzhya thaaya.','Krupadrushti paahen mazya Pandhariraaya.','Ho mazya Pandhariraaya.'] }
+        ]
+    },
+    {
+        id:'ghalin', icon:'🙏', cat:'Vishnu',
+        title:{ dev:'घालीन लोटांगण', eng:'Ghalin Lotangan' },
+        deity:{ dev:'विठ्ठल', eng:'Vitthal' },
+        lang :{ dev:'मराठी/संस्कृत', eng:'Marathi/Sanskrit' },
+        blocks:[
+            { t:'v', n:'१', ne:'1', dev:['घालीन लोटांगण वंदीन चरण॥','डोळ्यांनी पाहीं रूप तुझे॥','देवा प्रेमें आलिंगन आनंदें पूजीं॥','भावें ओवाळीं म्हणे नामा॥'], eng:['Ghalin lotangan vandin charan.','Dolyani pahin rup tujhe.','Deva Preme alingan anande pujin.','Bhave ovaleen mhane nama.'] },
+            { t:'v', n:'२', ne:'2', dev:['त्वमेव माता च पिता त्वमेव॥','त्वमेव बंधुश्च सखा त्वमेव॥','त्वमेव विद्या द्रविणं त्वमेव॥','त्वमेव सर्वं मम देव देव॥'], eng:['Twamev mata cha Pita twamev.','Twamev bandhusch sakha twamev.','Twamev Vidhya dravinam twamev.','Twamev sarwam mam dev dev.'] },
+            { t:'v', n:'३', ne:'3', dev:['कायेन वाचा मनसेन्द्रियैर्वा॥','बुद्ध्यात्मना वा प्रकृतिस्वभावात्॥','करोमि यद्यत् सकलं परस्मै॥','नारायणायेति समर्पयामि॥'], eng:['Kayena vacha manasendriyenva.','Buddhayatmna va prakrutiswabhavat.','Karomi yadhyat sakalam parasmai.','Narayanayeti samarpayami.'] },
+            { t:'v', n:'४', ne:'4', dev:['अच्युतं केशवं रामनारायणं॥','कृष्णदामोदरं वासुदेवं भजे॥','श्रीधरं माधवं गोपिकावल्लभं॥','जानकी नायकं रामचंद्रं भजे॥'], eng:['Achyutam keshavam ramnarayanam.','Krushanadamodaram vasudevam bhaje.','Shridharam Madhavam gopikavallabham.','Janaki nayakam ramchandra bhaje.'] },
+            { t:'c', dev:['हरे राम हरे राम, राम राम हरे हरे॥','हरे कृष्ण हरे कृष्ण, कृष्ण कृष्ण हरे हरे॥','हरे राम हरे राम, राम राम हरे हरे॥','हरे कृष्ण हरे कृष्ण, कृष्ण कृष्ण हरे हरे॥'], eng:['Hare Ram Hare Ram, Ram Ram Hare Hare.','Hare Krishna Hare Krishna, Krishna Krishna Hare Hare.','Hare Ram Hare Ram, Ram Ram Hare Hare.','Hare Krishna Hare Krishna, Krishna Krishna Hare Hare.'] }
+        ]
+    },
+    {
+        id:'sada', icon:'📿', cat:'Saint',
+        title:{ dev:'सदा सर्वदा (पंच श्लोक)', eng:'Sada Sarvada (Pancha Shloka)' },
+        deity:{ dev:'गुरु', eng:'Guru' },
+        lang :{ dev:'मराठी', eng:'Marathi' },
+        blocks:[
+            { t:'v', n:'१', ne:'1', dev:['सदा सर्वदा योग तुझा घडवा।','तुझे कारणी देह माझा पडवा॥','उपेक्षू नको गुणवंता अनंता।','रघुनायका मागणेहेच आता॥'], eng:['Sada Sarvada Yog Tujha Ghadava.','Tujhe Kaarani Deha Majha Padava.','Upekshu Nako Gunavanta Ananta.','Raghunayaka Maaganehecha Aata.'] },
+            { t:'v', n:'२', ne:'2', dev:['कैलास राणा शिव-चंद्रमौली।','फणींद्र माथा मुकुटी जळली॥','कारुण्य सिंधू भव-दुःख हारवी।','तुजविण शंभो मज कोण तारी॥'], eng:['Kailas Raana Shiva-Chandramouli.','Fanindra Maatha Mukuti Jalali.','Kaarunya Sindhu Bhava-Dukha Haarvii.','Tujhvin Shambho Maja Kona Taari.'] },
+            { t:'v', n:'३', ne:'3', dev:['मोरया मोरया मी बाळ तान्हे।','तुझीच सेवा करुकाया जाणे॥','अन्याय माझा कोट्याना कोटी।','मोरेश्वरबा तू घाला पोटी॥'], eng:['Morya Morya Mi Baal Taanhe.','Tujhicha Seva Karukaaya Jane.','Anyaaya Majha Kotyaana Koti.','Moreshwaraba Tu Ghala Poti.'] },
+            { t:'v', n:'४', ne:'4', dev:['ज्या ज्या ठिकाणी मन जाय माझे।','त्या त्या ठिकाणी निज रूप तुझे॥','मी ठेवितो मस्तक ज्याठिकाणी।','तेथे तुझे सद्गुरू पाय दोन्ही॥'], eng:['Jya Jya Thikani Mana Jaya Majhe.','Tya Tya Thikani Nij Rupa Tujhe.','Mi Thevito Mastak Jyathikani.','Tethe Tujhe Sadguru Paya Donhi.'] },
+            { t:'v', n:'५', ne:'5', dev:['अळंका पुरी पुण्य भूमी पवित्र।','तिथे नंदतो ज्ञान-राजा सुपुत्र॥','तया आठविता महा पुण्य राशी।','नमस्कार माझा सद्गुरू ज्ञानेश्वराशी॥'], eng:['Alanka Puri Punya Bhumi Pavitra.','Tithe Nandato Gyaan-raja Supatra.','Taya Aathavita Maha Punya Rashi.','Namaskar Majha Sadguru Dnyaneshwarashi.'] }
+        ]
+    },
+    {
+        id:'morya', icon:'🐘', cat:'Ganesh',
+        title:{ dev:'मोरया मोरया (अष्टविनायक)', eng:'Morya Morya (Ashtavinayak)' },
+        deity:{ dev:'गणेश', eng:'Ganesh' },
+        lang :{ dev:'मराठी', eng:'Marathi' },
+        blocks:[
+            { t:'c', dev:['मोरया मोरया सिद्धिविनायक मोरया।','मोरया मोरया मयुरेश्वरा मोरया॥','मोरया मोरया चिंतामणी मोरया।','मोरया मोरया महागणपती मोरया॥','मोरया मोरया विघ्नेश्वरा मोरया।','मोरया मोरया विरिजात्मज मोरया॥','मोरया मोरया वरद विनायक मोरया।','मोरया मोरया बल्लाळेश्वर मोरया॥','मोरया मोरया अष्टविनायक मोरया॥'], eng:['Morya Morya Siddhivinayak Morya.','Morya Morya Mayureshwara Morya.','Morya Morya Chintamani Morya.','Morya Morya Mahaganpati Morya.','Morya Morya Vigneshwara Morya.','Morya Morya Virijatmaj Morya.','Morya Morya Varad Vinayak Morya.','Morya Morya Ballaleshwar Morya.','Morya Morya Ashtavinayak Morya.'] }
+        ]
+    },
+    {
+        id:'bappa', icon:'🥁', cat:'Ganesh',
+        title:{ dev:'बाप्पा नाचे', eng:'Bappa Nache' },
+        deity:{ dev:'गणेश', eng:'Ganesh' },
+        lang :{ dev:'मराठी', eng:'Marathi' },
+        blocks:[
+            { t:'v', n:'१', ne:'1', dev:['रुनझुन रुनझुन घुंगरू वाजे, घुंगरू वाजे।','घुंगरूच्या ताळावर बाप्पा नाचे॥'], eng:['Runjhun Runjhun Ghungru Waje, Ghungru Waje,','Ghungru chya Talaver Bappa Nache.'] },
+            { t:'v', n:'२', ne:'2', dev:['थुई थुई थुई थुई मोर नाचे, मोर नाचे।','मोराच्या ताळावर बाप्पा नाचे॥'], eng:['Thui Thui Thui Thui Mor nache, Mor nache,','Mora chya Talaver Bappa Nache.'] },
+            { t:'v', n:'३', ne:'3', dev:['घन घन घन घन घंटा वाजे, घंटा वाजे।','घंटेच्या ताळावर बाप्पा नाचे॥'], eng:['Ghan Ghan Ghan Ghan Ganta Vaje, Ganta Vaje,','Gante chya Talaver Bappa Nache.'] },
+            { t:'v', n:'४', ne:'4', dev:['डफ डफ डफ डफ डफली वाजे, डफली वाजे।','डफलीच्या ताळावर बाप्पा नाचे॥'], eng:['Daf Daf Daf Daf Dafali waje, Dafali waje,','Dafali chya Talaver Bappa Nache.'] },
+            { t:'v', n:'५', ne:'5', dev:['टाळ टाळ टाळ टाळ टाळ वाजे, टाळ वाजे।','टाळाच्या ताळावर बाप्पा नाचे॥'], eng:['Tal Tal Tal Tal Taal waje, Taal waje,','Taala chya Talaver Bappa Nache.'] },
+            { t:'v', n:'६', ne:'6', dev:['टड टड टड टड टशा वाजे, टशा वाजे।','टशाच्या ताळावर बाप्पा नाचे॥'], eng:['Tad Tad Tad Tad Tasha Waje, Tasha Waje,','Tasha chya Talaver Bappa Nache.'] }
+        ]
+    },
+    {
+        id:'bholya', icon:'🔱', cat:'Shiva',
+        title:{ dev:'हे भोळ्या शंकरा', eng:'He Bholya Shankara' },
+        deity:{ dev:'शिव', eng:'Shiva' },
+        lang :{ dev:'मराठी', eng:'Marathi' },
+        blocks:[
+            { t:'c', dev:['हे भोळ्या शंकरा, हे भोळ्या शंकरा।','आवड तुला बेलाची, बेलाच्या पानाची॥','हे भोळ्या शंकरा, हे भोळ्या शंकरा॥'], eng:['He bholya Shankara, He bholya Shankara,','Aavad tula belaachi, Belachyaa paana chi,','He bholya Shankara, He bholya Shankara.'] },
+            { t:'v', n:'१', ne:'1', dev:['गळ्यामधे रुद्राक्षांचा माळा।','नावियले भस्म कपाला॥'], eng:['Galyamadhe rudrakshancha mala,','Laviyale bhasma kapala.'] },
+            { t:'c', dev:['आवड तुला बेलाची, बेलाच्या पानाची॥','हे भोळ्या शंकरा, हे भोळ्या शंकरा॥'], eng:['Aavad tula belaachi, Belachya pana chi,','He bholya Shankara, He bholya Shankara.'] },
+            { t:'v', n:'२', ne:'2', dev:['त्रिशूल डमरू हाती।','संगे नाचे पार्वती हो॥'], eng:['Trishul damru hati,','Sange naache parvati ho.'] },
+            { t:'c', dev:['आवड तुला बेलाची, बेलाच्या पानाची॥','हे भोळ्या शंकरा, हे भोळ्या शंकरा॥'], eng:['Aavad tula belaachi, Belachya pana chi,','He bholya Shankara, He bholya Shankara.'] },
+            { t:'v', n:'३', ne:'3', dev:['भोळेनाथ आलो तुझा दारी।','कुठे ही दिसे ना पुजारी॥'], eng:['Bholenaath aalo tujha daari,','Kuthe hi dise na pujaari.'] },
+            { t:'c', dev:['आवड तुला बेलाची, बेلاच्या पानाची॥','हे भोळ्या शंकरा, हे भोळ्या शंकरा॥'], eng:['Aavad tula belaachi, Belachya pana chi,','He bholya Shankara, He bholya Shankara.'] }
+        ]
+    }
+    ];
+
+    let currentCategoryFilter = 'all';
+    let activeAartiIndex = -1;
+let currentScriptMode =
+    localStorage.getItem(SCRIPT_STORAGE_KEY) || "dev"; // 'dev' = Devanagari, 'eng' = English Roman script
+    let aartiReaderFontSize = 1.12;
+
+    function renderAartiGrid() {
+        const grid = document.getElementById('aartiGrid');
+        if(!grid) return;
+
+        const filteredList = AARTI_LIST.filter(a => currentCategoryFilter === 'all' || a.cat === currentCategoryFilter);
+        
+        if (!filteredList.length) {
+            grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:3rem; color:#9a7b4f;">No aartis found in this category.</div>`;
+            return;
+        }
+
+        grid.innerHTML = filteredList.map(a => {
+            const idx = AARTI_LIST.indexOf(a);
+            const previewBlock = a.blocks.find(b => b.t === 'v') || a.blocks[0];
+            const previewText = previewBlock[currentScriptMode][0];
+            return `
+            <div class="aarti-card" onclick="window.openAartiReader(${idx})">
+                <div class="aarti-icon">${a.icon}</div>
+                <h3>॥ ${a.title[currentScriptMode]} ॥</h3>
+                <div class="aarti-meta">
+                    <span class="badge badge-deity">${a.deity[currentScriptMode]}</span>
+                    <span class="badge badge-lang">${a.lang[currentScriptMode]}</span>
+                </div>
+                <p class="aarti-preview">${previewText}</p>
+                <span class="read-cta">Read Aarti →</span>
+            </div>`;
+        }).join('');
+    }
+
+    /* Filter click listener */
+    document.getElementById('aartiCategoryFilters')?.addEventListener('click', e => {
+        if (!e.target.classList.contains('chip')) return;
+        document.querySelectorAll('#aartiCategoryFilters .chip').forEach(c => c.classList.remove('active'));
+        e.target.classList.add('active');
+        currentCategoryFilter = e.target.dataset.cat;
+        renderAartiGrid();
+    });
+
+    /* Window functions for inline HTML calls */
+    window.openAartiReader = function(index) {
+        activeAartiIndex = index;
+        renderAartiReaderContent();
+        document.getElementById('aartiReaderModal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeAartiReader = function() {
+        document.getElementById('aartiReaderModal').classList.remove('open');
+        document.body.style.overflow = '';
+        activeAartiIndex = -1;
+    };
+
+    window.navigateAarti = function(dir) {
+        const nextIdx = activeAartiIndex + dir;
+        if (nextIdx >= 0 && nextIdx < AARTI_LIST.length) {
+            activeAartiIndex = nextIdx;
+            renderAartiReaderContent();
+            document.querySelector('.reader-modal')?.scrollIntoView({ behavior:'smooth', block:'start' });
+        }
+    };
+
+    window.toggleAartiScript = function() {
+    const area = document.getElementById('aartiVersesArea');
+    area.classList.add('script-swap');
+
+    setTimeout(() => {
+
+        currentScriptMode = (currentScriptMode === 'dev') ? 'eng' : 'dev';
+
+        // Save the selected script
+        localStorage.setItem(SCRIPT_STORAGE_KEY, currentScriptMode);
+
+        if (activeAartiIndex >= 0) renderAartiReaderContent();
+        renderAartiGrid();
+
+        area.classList.remove('script-swap');
+
+        showAartiToast(
+            currentScriptMode === 'dev'
+                ? '🕉 देवनागरी लिपी'
+                : '🔤 English (Roman) script'
+        );
+
+    }, 200);
+};
+    window.adjustAartiFontSize = function(dir) {
+        aartiReaderFontSize = Math.min(1.7, Math.max(0.85, aartiReaderFontSize + dir * 0.1));
+        document.getElementById('aartiVersesArea').style.setProperty('--aarti-reader-fs', aartiReaderFontSize + 'rem');
+        showAartiToast(`Font size: ${Math.round(aartiReaderFontSize * 100)}%`);
+    };
+
+    window.shareAartiText = function() {
+        const a = AARTI_LIST[activeAartiIndex];
+        const text = `॥ ${a.title[currentScriptMode]} ॥\n\n` +
+                     a.blocks.map(b => b[currentScriptMode].join('\n')).join('\n\n');
+        if (navigator.share) {
+            navigator.share({ title: a.title[currentScriptMode], text }).catch(() => {});
+        } else {
+            navigator.clipboard.writeText(text).then(() => showAartiToast('📋 Copied to clipboard!'));
+        }
+    };
+
+    function renderAartiReaderContent() {
+        const a = AARTI_LIST[activeAartiIndex];
+        document.getElementById('rIcon').textContent  = a.icon;
+        document.getElementById('rTitle').textContent = '॥ ' + a.title[currentScriptMode] + ' ॥';
+        document.getElementById('rMeta').innerHTML =
+            `<span class="badge badge-deity">${a.deity[currentScriptMode]}</span>
+             <span class="badge badge-lang">${a.lang[currentScriptMode]}</span>`;
+
+        const verseArea = document.getElementById('aartiVersesArea');
+        verseArea.innerHTML = a.blocks.map(b => {
+            const cls = b.t === 'c' ? 'chorus-block' : 'verse-block';
+            const numStr = currentScriptMode === 'dev' ? b.n : b.ne;
+            const numTag = numStr ? ` <span class="vnum">॥${numStr}॥</span>` : '';
+            const lines = [...b[currentScriptMode]];
+            lines[lines.length - 1] += numTag;
+            return `<div class="${cls}">${lines.map(l => `<p>${l}</p>`).join('')}</div>`;
+        }).join('');
+
+        const prev = AARTI_LIST[activeAartiIndex - 1], next = AARTI_LIST[activeAartiIndex + 1];
+        document.getElementById('prevBtn').disabled = !prev;
+        document.getElementById('nextBtn').disabled = !next;
+        document.getElementById('prevTitle').textContent = prev ? prev.title[currentScriptMode] : '—';
+        document.getElementById('nextTitle').textContent = next ? next.title[currentScriptMode] : '—';
+        document.getElementById('aartiScriptBtnLabel').textContent = currentScriptMode === 'dev' ? '🔤 English' : '🕉 देवनागरी';
+    }
+
+    let toastTimer;
+    function showAartiToast(msg) {
+        const t = document.getElementById('aartiToast');
+        if(!t) return;
+        t.textContent = msg;
+        t.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+    }
+
+    /* Modal Backdrop click listener */
+    document.getElementById('aartiReaderModal')?.addEventListener('click', e => {
+        if (e.target.id === 'aartiReaderModal') window.closeAartiReader();
+    });
+
+    /* Keyboard Navigation */
+    document.addEventListener('keydown', e => {
+        if (activeAartiIndex < 0) return;
+        if (e.key === 'ArrowLeft') window.navigateAarti(-1);
+        if (e.key === 'ArrowRight') window.navigateAarti(1);
+        if (e.key === 'Escape') window.closeAartiReader();
+    });
+
+    /* Initialize Grid on Load */
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', renderAartiGrid);
+    } else {
+        renderAartiGrid();
+    }
+})();
+
+/* ================= COUNTER ================= */
+
+document.querySelectorAll(".counter").forEach(counter=>{
+
+let target=+counter.dataset.target;
+
+let current=0;
+
+let increment=Math.ceil(target/60);
+
+function update(){
+
+current+=increment;
+
+if(current>target) current=target;
+
+counter.innerText=current;
+
+if(current<target){
+
+requestAnimationFrame(update);
+
+}
+
+}
+
+update();
+
+});
+
+
+/* ================= FLOATING DIYAS ================= */
+
+const container=document.getElementById("floatingItems");
+
+const items=["🪔","✨","🌸","🔱","🌼"];
+
+for(let i=0;i<18;i++){
+
+let span=document.createElement("span");
+
+span.className="floating";
+
+span.innerHTML=items[Math.floor(Math.random()*items.length)];
+
+span.style.left=Math.random()*100+"%";
+
+span.style.fontSize=(20+Math.random()*25)+"px";
+
+span.style.animationDuration=(8+Math.random()*8)+"s";
+
+span.style.animationDelay=(Math.random()*8)+"s";
+
+container.appendChild(span);
+
+}
+
+
+/* ================= DRAW MANDALA ================= */
+
+const petals=document.getElementById("petals");
+
+let html="";
+
+for(let ring=0;ring<4;ring++){
+
+let radius=38+(ring*15);
+
+let count=12+(ring*6);
+
+for(let i=0;i<count;i++){
+
+let angle=(i/count)*Math.PI*2;
+
+let x=100+Math.cos(angle)*radius;
+
+let y=100+Math.sin(angle)*radius;
+
+html+=`<circle cx="${x}" cy="${y}" r="${4-ring*.6}"/>`;
+
+}
+
+}
+
+petals.innerHTML=html;
+
+
+/* ================= PARALLAX ================= */
+
+window.addEventListener("mousemove",(e)=>{
+
+let x=(e.clientX/window.innerWidth-.5)*20;
+
+let y=(e.clientY/window.innerHeight-.5)*20;
+
+document.querySelector(".mandala").style.transform=`translate(${x}px,${y}px) rotate(${window.scrollY/15}deg)`;
+
+});
+
+
+/* ================= SCROLL ICON ================= */
+
+document.querySelector(".scroll-down").onclick=()=>{
+
+document.querySelector("#collection").scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+};
+
+</script>
+
+</body>
+</html>

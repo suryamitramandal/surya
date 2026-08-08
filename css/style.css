@@ -286,13 +286,59 @@ h1,h2,h3,.font-display{font-family:var(--font-display);font-weight:400;line-heig
 .sponsor-card img{height:80px;width:100%;object-fit:contain;
   filter:grayscale(.4);transition:filter var(--dur-base)}
 .sponsor-card:hover img{filter:grayscale(0)}
-.marquee-wrap{overflow:hidden;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
-  mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
-.marquee-track{display:flex;gap:var(--sp-10);width:max-content;animation:marquee 24s linear infinite}
-.marquee-track img{height:70px;width:auto;filter:grayscale(.5) opacity(.7);
-  transition:filter var(--dur-base)}
-.marquee-track img:hover{filter:grayscale(0) opacity(1)}
+.marquee-wrap{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+
+    -webkit-mask-image:linear-gradient(
+        to right,
+        transparent,
+        #000 8%,
+        #000 92%,
+        transparent
+    );
+
+    mask-image:linear-gradient(
+        to right,
+        transparent,
+        #000 8%,
+        #000 92%,
+        transparent
+    );
+}
+
+.marquee-track{
+    display:flex;
+    align-items:center;
+    width:max-content;
+    animation:marquee 30s linear infinite;
+    will-change:transform;
+}
+
+.marquee-track img{
+    height:70px;
+    width:auto;
+    margin:0 10px;
+    flex-shrink:0;
+
+    filter:grayscale(.5) opacity(.7);
+    transition:filter .3s ease, transform .3s ease;
+}
+
+.marquee-track img:hover{
+    filter:grayscale(0) opacity(1);
+    transform:scale(1.05);
+}
+
+@keyframes marquee{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
 
 /* — Events ——————————————————————— */
 .events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:var(--sp-6)}
@@ -471,3 +517,16 @@ h1,h2,h3,.font-display{font-family:var(--font-display);font-weight:400;line-heig
   font-size:var(--fs-xs);font-weight:600;background:var(--bg-300);color:var(--text-300);
   border:1px solid var(--border)}
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+
+
+
+.form-select{
+    background: var(--bg-card);
+    color: var(--text-100);
+}
+
+.form-select option{
+    background: #ffffff;
+    color: #222222;
+}

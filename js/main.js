@@ -13,6 +13,11 @@
     initForms();
     initCountdown();
     addRippleToAllBtns();
+    const sponsorTrack = document.getElementById("sponsorTrack");
+
+    if (sponsorTrack) {
+        sponsorTrack.innerHTML += sponsorTrack.innerHTML;
+    }
   });
 });
 

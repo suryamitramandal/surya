@@ -13,7 +13,7 @@ const HEADER_HTML = `
     <div class="topbar-right">
       <a href="https://www.facebook.com/profile.php?id=61578631113462" target="_blank" rel="noopener">📘 Facebook</a>
       <a href="https://www.instagram.com/singhestatecha_raja/" target="_blank" rel="noopener">📸 Instagram</a>
-      <a href="https://www.youtube.com/watch?v=Z_s6wVqMk-A" target="_blank" rel="noopener">▶️ YouTube</a>
+      <a href="https://www.youtube.com/shorts/RE1qCTL7p48" target="_blank" rel="noopener">▶️ YouTube</a>
     </div>
   </div>
 </div>
@@ -27,6 +27,7 @@ const HEADER_HTML = `
       <li><a href="index.html" data-i18n="nav_home">Home</a></li>
       <li><a href="about.html" data-i18n="nav_about">About</a></li>
       <li><a href="leadership.html" data-i18n="nav_leadership">Leadership</a></li>
+      <li><a href="aarti.html" data-i18n="nav_aarti">Aartis</a></li>
       <li><a href="gallery.html" data-i18n="nav_gallery">Gallery</a></li>
       <li><a href="event.html" data-i18n="nav_event">Events</a></li>
       <li><a href="sponsors.html" data-i18n="nav_sponsors">Sponsors</a></li>
@@ -71,7 +72,7 @@ const FOOTER_HTML = `
           <div class="footer-social">
             <a href="https://www.facebook.com/profile.php?id=61578631113462" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">f</a>
             <a href="https://www.instagram.com/singhestatecha_raja/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">◎</a>
-            <a href="https://www.youtube.com/watch?v=Z_s6wVqMk-A" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">▶</a>
+            <a href="https://www.youtube.com/shorts/RE1qCTL7p48" target="_blank" rel="noopener" class="social-btn" aria-label="YouTube">▶</a>
           </div>
           <div class="qr-footer">
             <img src="${BASE}Bappa1/Images/QR.jpeg" alt="UPI QR Code" width="90" height="90">
@@ -84,6 +85,7 @@ const FOOTER_HTML = `
             <li><a href="index.html" data-i18n="nav_home">Home</a></li>
             <li><a href="about.html" data-i18n="nav_about">About</a></li>
             <li><a href="leadership.html" data-i18n="nav_leadership">Leadership</a></li>
+            <li><a href="aarti.html" data-i18n="nav_aarti">Aartis</a></li>
             <li><a href="gallery.html" data-i18n="nav_gallery">Gallery</a></li>
             <li><a href="event.html" data-i18n="nav_event">Events</a></li>
             <li><a href="sponsors.html" data-i18n="nav_sponsors">Sponsors</a></li>
@@ -96,7 +98,7 @@ const FOOTER_HTML = `
             <li><a href="contact.html" data-i18n="nav_contact">Contact</a></li>
             <li><a href="https://www.facebook.com/profile.php?id=61578631113462" target="_blank" rel="noopener">📘 Facebook</a></li>
             <li><a href="https://www.instagram.com/singhestatecha_raja/" target="_blank" rel="noopener">📸 Instagram</a></li>
-            <li><a href="https://www.youtube.com/watch?v=Z_s6wVqMk-A" target="_blank" rel="noopener">▶️ YouTube</a></li>
+            <li><a href="https://www.youtube.com/shorts/RE1qCTL7p48" target="_blank" rel="noopener">▶️ YouTube</a></li>
           </ul>
         </div>
         <div class="footer-col">

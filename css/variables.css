@@ -1,8 +1,8 @@
 /* SURYA MITRA MANDAL - Design Tokens */
 :root {
   --clr-vermilion:#E8540C;--clr-vermilion-dk:#C4420A;--clr-vermilion-lt:#FF6B2B;
-  --clr-gold:#D4A017;--clr-gold-lt:#F1C75B;--clr-maroon:#5E0F12;--clr-maroon-lt:#7A1620;--clr-saffron:#FF8A3D;
-  --bg-100:#FFFDF8;--bg-200:#FBF3E3;--bg-300:#F4E8CF;
+  --clr-gold:#D4A017;--clr-gold-lt:#F1C75B;--clr-maroon:#5E0F12;--clr-maroon-lt:#7A1620;--clr-saffron:#4e2204;
+  --bg-100:#f5eedc;--bg-200:#FBF3E3;--bg-300:#F4E8CF;
   --bg-card:rgba(255,255,255,0.85);--bg-glass:rgba(255,255,255,0.55);
   --text-100:#1A0808;--text-200:#3D1A1A;--text-300:#6B4545;--text-muted:#9A7777;
   --border:rgba(94,15,18,0.10);--border-strong:rgba(94,15,18,0.22);
@@ -20,11 +20,11 @@
   --ease-out:cubic-bezier(.22,1,.36,1);--ease:cubic-bezier(.4,0,.2,1);
   --dur-fast:180ms;--dur-base:320ms;--dur-slow:520ms;
   --grad-primary:linear-gradient(135deg,#E8540C,#5E0F12);
-  --grad-gold:linear-gradient(135deg,#D4A017,#FF8A3D);
+  --grad-gold:linear-gradient(135deg,#D4A017,#4e2204);
   --grad-hero:linear-gradient(160deg,#5E0F12 0%,#9A2320 45%,#C4420A 100%);
 }
 [data-theme="dark"]{
-  --bg-100:#080202;--bg-200:#120606;--bg-300:#1C0C0C;
+  --bg-100:#360707;--bg-200:#120606;--bg-300:#1C0C0C;
   --bg-card:rgba(255,255,255,.05);--bg-glass:rgba(255,255,255,.07);
   --text-100:#FBF3E3;--text-200:#E0C8C8;--text-300:#C4A0A0;--text-muted:#7A5858;
   --border:rgba(232,84,12,.14);--border-strong:rgba(232,84,12,.28);
