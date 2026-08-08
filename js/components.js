@@ -27,7 +27,7 @@ const HEADER_HTML = `
       <li><a href="index.html" data-i18n="nav_home">Home</a></li>
       <li><a href="about.html" data-i18n="nav_about">About</a></li>
       <li><a href="leadership.html" data-i18n="nav_leadership">Leadership</a></li>
-      <li><a href="aarti.html" data-i18n="nav_aarti">Aartis</a></li>
+      <li><a href="aarti.html" data-i18n="nav_aarti">Aarti</a></li>
       <li><a href="gallery.html" data-i18n="nav_gallery">Gallery</a></li>
       <li><a href="event.html" data-i18n="nav_event">Events</a></li>
       <li><a href="sponsors.html" data-i18n="nav_sponsors">Sponsors</a></li>
@@ -85,7 +85,7 @@ const FOOTER_HTML = `
             <li><a href="index.html" data-i18n="nav_home">Home</a></li>
             <li><a href="about.html" data-i18n="nav_about">About</a></li>
             <li><a href="leadership.html" data-i18n="nav_leadership">Leadership</a></li>
-            <li><a href="aarti.html" data-i18n="nav_aarti">Aartis</a></li>
+            <li><a href="aarti.html" data-i18n="nav_aarti">Aarti</a></li>
             <li><a href="gallery.html" data-i18n="nav_gallery">Gallery</a></li>
             <li><a href="event.html" data-i18n="nav_event">Events</a></li>
             <li><a href="sponsors.html" data-i18n="nav_sponsors">Sponsors</a></li>
