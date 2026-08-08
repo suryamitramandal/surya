@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Aarti Sangrah | Surya Mitra Mandal — Collection of Devotional Aartis">
+<meta name="description" content="Aarti Sangrah | Surya Mitra Mandal — Collection of Devotional Aarti">
 <title>Aarti Sangrah | Surya Mitra Mandal</title>
 <link rel="stylesheet" href="css/variables.css">
 <link rel="stylesheet" href="css/animations.css">
@@ -639,17 +639,17 @@ font-size:30px;
 
         <h1>॥ आरती संग्रह ॥</h1>
 
-        <h3>A Sacred Collection of Hindu Aartis</h3>
+        <h3>A Sacred Collection of Hindu Aarti</h3>
 
         <p>
             गणेश • देवी • शिव • विष्णु • विठ्ठल • संत आरत्या
             <br>
-            All Devotional Aartis at One Place
+            All Devotional Aarti at One Place
         </p>
 
         <div class="hero-buttons">
             <a href="javascript:void(0)" class="hero-btn primary" onclick="window.openAartiReader(0)">
-                🪔 Read Aartis
+                🪔 Read Aarti
             </a>
 
             <!-- <a href="#" class="hero-btn secondary">
@@ -661,7 +661,7 @@ font-size:30px;
 
             <div>
                 <span class="counter" data-target="13">0</span>
-                <small>Aartis</small>
+                <small>Aarti</small>
             </div>
 
             <div>
@@ -725,8 +725,8 @@ font-size:30px;
                 <button class="aarti-tool-btn" onclick="adjustAartiFontSize(-1)" title="Smaller text">अ−</button>
                 <button class="aarti-tool-btn" onclick="adjustAartiFontSize(1)" title="Bigger text">अ+</button>
                 <button class="aarti-tool-btn" onclick="shareAartiText()" title="Share">↗ Share</button>
-                <button class="aarti-tool-btn lang-btn" id="aartiScriptToggleBtn" onclick="toggleAartiScript()" title="Switch Script">
-                    <span id="aartiScriptBtnLabel">🔤 English</span>
+                <button class="aarti-tool-btn lang-btn" id="AarticriptToggleBtn" onclick="toggleAarticript()" title="Switch Script">
+                    <span id="AarticriptBtnLabel">🔤 English</span>
                 </button>
             </div>
         </div>
@@ -969,7 +969,7 @@ let currentScriptMode =
         const filteredList = AARTI_LIST.filter(a => currentCategoryFilter === 'all' || a.cat === currentCategoryFilter);
         
         if (!filteredList.length) {
-            grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:3rem; color:#9a7b4f;">No aartis found in this category.</div>`;
+            grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:3rem; color:#9a7b4f;">No Aarti found in this category.</div>`;
             return;
         }
 
@@ -1023,7 +1023,7 @@ let currentScriptMode =
         }
     };
 
-    window.toggleAartiScript = function() {
+    window.toggleAarticript = function() {
     const area = document.getElementById('aartiVersesArea');
     area.classList.add('script-swap');
 
@@ -1087,7 +1087,7 @@ let currentScriptMode =
         document.getElementById('nextBtn').disabled = !next;
         document.getElementById('prevTitle').textContent = prev ? prev.title[currentScriptMode] : '—';
         document.getElementById('nextTitle').textContent = next ? next.title[currentScriptMode] : '—';
-        document.getElementById('aartiScriptBtnLabel').textContent = currentScriptMode === 'dev' ? '🔤 English' : '🕉 देवनागरी';
+        document.getElementById('AarticriptBtnLabel').textContent = currentScriptMode === 'dev' ? '🔤 English' : '🕉 देवनागरी';
     }
 
     let toastTimer;
