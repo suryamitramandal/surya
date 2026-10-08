@@ -23,7 +23,7 @@
 
 function initCountdown() {
   // Ganpati Sthapana: 14 Sep 2026 12:00 IST
-  const target = new Date('2026-09-10T12:00:00+05:30').getTime();
+  const target = new Date('2027-08-29T12:00:00+05:30').getTime();
   const tick = () => {
     const diff = Math.max(target - Date.now(), 0);
     const pad = n => String(Math.floor(n)).padStart(2,'0');
