@@ -9,7 +9,10 @@ const LANGS = {
     nav_home:'Home', nav_about:'About', nav_leadership:'Leadership',
     nav_gallery:'Gallery', nav_event:'Events', nav_sponsors:'Sponsors',
     nav_donate:'Donate', nav_contact:'Contact',
+    nav_about_menu:'About Us', nav_events_menu:'Events & Media', nav_support_menu:'Support',
     topbar_call:'Call Us: +91 9867648995',
+    music_play:'Play Music', music_pause:'Pause Music', music_error:'Music unavailable',
+    preloader_text:'Loading',
     /* Home hero */
     hero_eyebrow:'Ganpati Sthapana · 2026',
     hero_h1:'Our Beloved <em>Bappa</em><br>Singh Estate Cha Raja',
@@ -34,6 +37,7 @@ const LANGS = {
     s1:'Years Active',s2:'Devotees Yearly',s3:'Events Organized',s4:'Social Drives',
     events_eyebrow:'Upcoming',events_h2:'Events & Programs',
     gallery_eyebrow:'Memories',gallery_h2:'Our Gallery',
+    gallery_cta:'View All Photos',gallery_photos:'Photos',
     sponsors_eyebrow:'Our Partners',sponsors_h2:'Proudly Supported By',
     cta_h2:'Be Part of the Celebration',
     cta_p:'Join Surya Mitra Mandal — as a volunteer, sponsor, or devotee — and help us make Bappa\'s welcome grander every year.',
@@ -78,7 +82,10 @@ const LANGS = {
     nav_home:'होम', nav_about:'हमारे बारे में', nav_leadership:'नेतृत्व',
     nav_gallery:'गैलरी', nav_event:'कार्यक्रम', nav_sponsors:'प्रायोजक',
     nav_donate:'दान करें', nav_contact:'संपर्क करें',
+    nav_about_menu:'हमारे बारे में', nav_events_menu:'कार्यक्रम और मीडिया', nav_support_menu:'सहयोग',
     topbar_call:'हमें कॉल करें: +91 9867648995',
+    music_play:'संगीत चलाएं', music_pause:'संगीत रोकें', music_error:'संगीत उपलब्ध नहीं है',
+    preloader_text:'लोड हो रहा है',
     hero_eyebrow:'गणपती स्थापना · २०२६',
     hero_h1:'हमारे प्यारे <em>बाप्पा</em><br>सिंह इस्टेट चा राजा',
     hero_sub:'सूर्य मित्र मंडल, सिंह इस्टेट — २००१ से श्रद्धा, भव्यता और सामुदायिक भावना के साथ गणेश उत्सव मना रहा है।',
@@ -99,6 +106,7 @@ const LANGS = {
     s1:'सक्रिय वर्ष',s2:'वार्षिक भक्त',s3:'आयोजित कार्यक्रम',s4:'सामाजिक अभियान',
     events_eyebrow:'आगामी',events_h2:'कार्यक्रम और प्रोग्राम',
     gallery_eyebrow:'यादें',gallery_h2:'हमारी गैलरी',
+    gallery_cta:'सभी तस्वीरें देखें',gallery_photos:'तस्वीरें',
     sponsors_eyebrow:'हमारे साझेदार',sponsors_h2:'हमारे प्रायोजकों द्वारा समर्थित',
     cta_h2:'उत्सव का हिस्सा बनें',cta_p:'स्वयंसेवक, प्रायोजक या भक्त के रूप में जुड़ें और बाप्पा के स्वागत को और भव्य बनाएं।',
     cta_btn1:'दान करें',cta_btn2:'संपर्क करें',
@@ -134,7 +142,10 @@ const LANGS = {
     nav_home:'मुखपृष्ठ', nav_about:'आमच्याबद्दल', nav_leadership:'नेतृत्व',
     nav_gallery:'गॅलरी', nav_event:'कार्यक्रम', nav_sponsors:'प्रायोजक',
     nav_donate:'देणगी', nav_contact:'संपर्क',
+    nav_about_menu:'आमच्याबद्दल', nav_events_menu:'कार्यक्रम व मीडिया', nav_support_menu:'सहाय्य',
     topbar_call:'आम्हाला कॉल करा: +91 9867648995',
+    music_play:'संगीत वाजवा', music_pause:'संगीत थांबवा', music_error:'संगीत उपलब्ध नाही',
+    preloader_text:'लोड होत आहे',
     hero_eyebrow:'गणपती स्थापना · २०२६',
     hero_h1:'आमचे लाडके <em>बाप्पा</em><br>सिंह इस्टेट चा राजा',
     hero_sub:'सुर्या मित्र मंडळ, सिंह इस्टेट — २००१ पासून भक्तिभाव, दिव्यता आणि सामुदायिक आत्म्यासह गणेश उत्सव साजरा करत आहे.',
@@ -155,6 +166,7 @@ const LANGS = {
     s1:'सक्रिय वर्षे',s2:'वार्षिक भाविक',s3:'आयोजित कार्यक्रम',s4:'सामाजिक मोहिमा',
     events_eyebrow:'आगामी',events_h2:'कार्यक्रम व उपक्रम',
     gallery_eyebrow:'आठवणी',gallery_h2:'आमची गॅलरी',
+    gallery_cta:'सर्व फोटो पहा',gallery_photos:'फोटो',
     sponsors_eyebrow:'आमचे भागीदार',sponsors_h2:'अभिमानाने समर्थित',
     cta_h2:'उत्सवाचा भाग व्हा',cta_p:'स्वयंसेवक, प्रायोजक किंवा भाविक म्हणून जोडा आणि बाप्पाचे स्वागत अधिक भव्य करा.',
     cta_btn1:'देणगी द्या',cta_btn2:'संपर्क करा',
@@ -205,11 +217,11 @@ function setLang(code) {
   });
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === code);
-    if (btn.dataset.lang === code) btn.style.color = 'var(--clr-vermilion)';
-    else btn.style.color = '';
   });
   // Set html lang attr
   document.documentElement.lang = code;
+  // Notify modules with manually-managed labels (e.g. music player)
+  document.dispatchEvent(new CustomEvent('smm:langchange', { detail: { code } }));
 }
 
 function t(key) {

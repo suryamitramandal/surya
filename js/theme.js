@@ -1,4 +1,6 @@
-/* Theme System */
+/* Theme System — light/dark via [data-theme] on <html>.
+   The animated sun/moon toggle (Skiper Theme Toggle Button 2 port)
+   is styled entirely in CSS from the data-theme attribute. */
 
 (function () {
     const STORAGE_KEY = "smm_theme";
@@ -22,11 +24,11 @@ function initTheme() {
     const STORAGE_KEY = "smm_theme";
 
     const update = (theme) => {
+        const isDark = theme === "dark";
         buttons.forEach(btn => {
-            btn.innerHTML = theme === "dark" ? "☀️" : "🌙";
-            btn.title = theme === "dark"
-                ? "Switch to Light"
-                : "Switch to Dark";
+            btn.setAttribute("aria-pressed", String(isDark));
+            btn.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+            btn.title = isDark ? "Switch to Light" : "Switch to Dark";
         });
     };
 
